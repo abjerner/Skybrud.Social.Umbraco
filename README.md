@@ -6,6 +6,8 @@ If you're using Umbraco 6, have a look at [this package](https://github.com/abje
 
 `Skybrud.Social for Umbraco 7` focuses on the Umbraco backend by adding a set of data types. As of now there are data types to handle the OAuth authentication for the APIs of Facebook, Twitter, Google and Instagram.
 
+![Example of OAuth data types in action](docs/images/readme1.png)
+
 ### Installation
 
 - *Link to package at Our*
