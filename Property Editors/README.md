@@ -1,17 +1,17 @@
 ### Property Editors
 
-** Facebook **
+**Facebook**
 
 - [Facebook OAuth](Facebook%20OAuth.md)
 
-** Google **
+**Google**
 
 - [Google OAuth](Google%20OAuth.md)
 
-** Instagram **
+**Instagram**
 
 - [Instagram OAuth](Instagram%20OAuth.md)
 
-** Twitter **
+**Twitter**
 
 - [Twitter OAuth](Twitter%20OAuth.md)

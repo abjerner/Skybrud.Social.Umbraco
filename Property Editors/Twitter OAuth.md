@@ -1,3 +1,3 @@
-### Google OAuth
+### Twitter OAuth
 
 *Coming soon*

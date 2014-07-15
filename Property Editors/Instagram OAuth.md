@@ -1,3 +1,3 @@
-### Google OAuth
+### Instagram OAuth
 
 *Coming soon*
