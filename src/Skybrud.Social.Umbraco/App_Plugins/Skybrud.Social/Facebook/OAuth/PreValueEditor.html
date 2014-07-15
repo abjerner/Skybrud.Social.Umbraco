@@ -1,0 +1,52 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Facebook.OAuth.PreValues.Controller">
+
+    <small>
+        Facebook uses <strong>OAuth 2.0</strong> for authentication and communication. In order for
+        users to authenticate with the Facebook API, you must specify the ID, secret and redirect
+        URI of your Facebook app. You can create a new app at the following URL:
+        <strong>https://developers.facebook.com/</strong><br />
+        <br />
+        <strong>Notice:</strong> When a user authenticates with the Facebook API, an access token
+        is saved along with information about the user. With the Facebook API, access tokens will
+        expire after roughly two months.<br />
+        <br />
+        <strong>Notice:</strong> When a user is redirected to the Facebook login dialog, the scope
+        (permissions of the app) is specified. It is currently not possible to specify a scope, but
+        this will be possible in a future version of this package. The current scope sent to the
+        login dialog is: <samp>read_stream user_status user_about_me user_photos</samp>.
+    </small>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>App ID</span>
+                <small>The ID of the Facebook app.</small>
+            </div>
+            <input type="text" ng-model="model.value.appid" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>App Secret</span>
+                <small>The secret of the Facebook app.</small>
+            </div>
+            <input type="text" ng-model="model.value.appsecret" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Redirect URI</span>
+                <small>The redirect URI of the Facebook app.</small>
+            </div>
+            <input type="text" ng-model="model.value.redirecturi" />
+        </label>
+        <div ng-show="model.value.redirecturi == ''" class="suggestion">
+            Will most likely be: {{suggestedRedirectUri}}
+        </div>
+    </div>
+
+</div>

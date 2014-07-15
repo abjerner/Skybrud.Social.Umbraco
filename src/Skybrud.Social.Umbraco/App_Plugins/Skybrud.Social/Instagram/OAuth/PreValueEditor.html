@@ -1,0 +1,47 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Instagram.OAuth.PreValues.Controller">
+
+    <small>
+        Instagram uses <strong>OAuth 2.0</strong> for authentication and communication. In order
+        for users to authenticate with the Instagram API, you must specify the ID, secret and
+        redirect URI of your Instagram app. You can create a new app at the following URL:
+        <strong>http://instagram.com/developer/clients/manage/</strong><br />
+        <br />
+        <strong>Notice:</strong> When a user authenticates with the Instagram API, an access token
+        is saved along with information about the user. With the Instagram API, access tokens will
+        not expire - unless the user deauthorizes the app.
+    </small>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>Client ID</span>
+                <small>The ID of the Instagram app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientid" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Client Secret</span>
+                <small>The secret of the Instagram app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientsecret" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Redirect URI</span>
+                <small>The redirect URI of the Instagram app.</small>
+            </div>
+            <input type="text" ng-model="model.value.redirecturi" />
+        </label>
+        <div ng-show="model.value.redirecturi == ''" class="suggestion">
+            Will most likely be: {{suggestedRedirectUri}}
+        </div>
+    </div>
+
+</div>

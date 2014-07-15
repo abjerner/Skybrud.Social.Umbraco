@@ -1,0 +1,35 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Twitter.OAuth.PreValues.Controller">
+    
+    <small>
+        The Twitter API uses <strong>OAuth 1.0a</strong> for authentication and communication. In
+        order for users to authenticate with the Twitter API, you must specify a comsumer key
+        (Twitter calls it an API key) and a consumer secret (Twitter calls it an API secret) of
+        your Twitter app. You can create a new app at the following URL:
+        <strong>https://apps.twitter.com/</strong><br />
+        <br />
+        <strong>Notice:</strong> You may have to specify a callback URL for your Twitter app to
+        enable OAuth authentication (the login dialog). The URL is not used by this package, so you
+        can just specify a somewhat random URL.
+    </small>
+
+    <div class="option">
+         <label>
+            <div>
+                <span>Consumer Key</span>
+                <small>The consumer key of the Twitter app.</small>
+            </div>
+            <input type="text" ng-model="model.value.consumerkey" required />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Consumer Secret</span>
+                <small>The consumer secret of the Twitter app.</small>
+            </div>
+            <input type="text" ng-model="model.value.consumersecret" required />
+        </label>
+    </div>
+
+</div>

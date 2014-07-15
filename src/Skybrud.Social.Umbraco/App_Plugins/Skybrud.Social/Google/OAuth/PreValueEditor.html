@@ -1,0 +1,54 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Google.OAuth.PreValues.Controller">
+
+    <small>
+        Google uses <strong>OAuth 2.0</strong> for authentication and communication. In order for
+        users to authenticate with the Google API, you must specify the ID, secret and redirect URI
+        of your Google app. You can create a new app at the following URL:
+        <strong>https://console.developers.google.com/project</strong><br />
+        <br />
+        <strong>Notice:</strong> When a user authenticates with the Google API, a refresh token is
+        saved along with information about the user. The refresh token can be used to obtain an
+        access token, which again can be used to make calls to the Google API. Refresh tokens will
+        not expire unless the user deauthorizes the app. Access tokens will only have a lifetime of
+        about an hour.<br />
+        <br />
+        <strong>Notice:</strong> When a user is redirected to the Google login dialog, the scope
+        (permissions of the app) is specified. It is currently not possible to specify a scope, but
+        this will be possible in a future version of this package. The current scope sent to the
+        login dialog is: <samp>openid email profile</samp>.
+    </small>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>Client ID</span>
+                <small>The ID of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientid" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Client Secret</span>
+                <small>The secret of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientsecret" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Redirect URI</span>
+                <small>The redirect URI of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.redirecturi" />
+        </label>
+        <div ng-show="model.value.redirecturi == ''" class="suggestion">
+            Will most likely be: {{suggestedRedirectUri}}
+        </div>
+    </div>
+
+</div>
