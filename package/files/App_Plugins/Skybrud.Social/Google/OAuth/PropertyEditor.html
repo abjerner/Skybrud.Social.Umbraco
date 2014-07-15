@@ -1,0 +1,20 @@
+﻿<div ng-controller="Skybrud.Social.Google.OAuth.Controller">
+    
+    <div ng-show="model.value">
+        <div ng-show="model.value.avatar" style="float: left; margin-right: 10px;">
+            <img src="{{model.value.avatar}}" width="50" height="50" alt="" />
+        </div>
+        <div style="float: left; margin-right: 10px;">
+            <div style="margin-bottom: 5px;">
+                <strong>{{model.value.name}}</strong> <span style="font-size: 12px;">(ID: {{model.value.id}})</span>
+            </div>
+            <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div ng-show="!model.value">
+        <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
+    </div>
+
+</div>
