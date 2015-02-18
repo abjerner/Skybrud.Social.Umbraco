@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using Skybrud.Social.OAuth;
 using Skybrud.Social.Twitter;
+using Skybrud.Social.Twitter.Exceptions;
 using Skybrud.Social.Twitter.OAuth;
 using Skybrud.Social.Twitter.Objects;
+using Skybrud.Social.Twitter.Responses;
 using Skybrud.Social.Umbraco.Twitter;
 using Skybrud.Social.Umbraco.Twitter.PropertyEditors;
 using Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth;
@@ -107,7 +109,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     TwitterService service = TwitterService.CreateFromOAuthClient(client);
 
                     // Get information about the server
-                    TwitterUser user = service.Account.VerifyCredentials();
+                    TwitterUser user = service.Account.VerifyCredentials().Body;
 
                     Content.Text += "<p>Hi <strong>" + (String.IsNullOrEmpty(user.Name) ? user.ScreenName : user.Name) + "</strong></p>";
                     Content.Text += "<p>Please wait while you're being redirected...</p>";

@@ -119,7 +119,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 InstagramService service = InstagramService.CreateFromAccessToken(accessToken.AccessToken);
 
                 // Get information about the authenticated user
-                InstagramUser user = service.Users.GetSelf().Data;
+                InstagramUser user = service.Users.GetSelf().Body.Data;
 
                 Content.Text += "<p>Hi <strong>" + (user.FullName ?? user.Username) + "</strong></p>";
                 Content.Text += "<p>Please wait while you're being redirected...</p>";

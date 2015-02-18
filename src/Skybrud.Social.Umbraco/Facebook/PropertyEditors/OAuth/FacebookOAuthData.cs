@@ -18,7 +18,7 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
         /// Gets the ID of the authenticated user.
         /// </summary>
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public string Id { get; set; }
         
         /// <summary>
         /// Gets the name of the authenticated user.

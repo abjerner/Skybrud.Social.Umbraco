@@ -108,14 +108,14 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 };
 
                 // Declare the scope
-                string[] scope = new[] {
+                GoogleScopeCollection scope = new[] {
                     GoogleScope.OpenId,
                     GoogleScope.Email,
                     GoogleScope.Profile
                 };
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, String.Join(" ", scope), GoogleAccessType.Offline, GoogleApprovalPrompt.Force);
+                string url = client.GetAuthorizationUrl(state, scope, GoogleAccessType.Offline, GoogleApprovalPrompt.Force);
                 
                 // Redirect the user
                 Response.Redirect(url);

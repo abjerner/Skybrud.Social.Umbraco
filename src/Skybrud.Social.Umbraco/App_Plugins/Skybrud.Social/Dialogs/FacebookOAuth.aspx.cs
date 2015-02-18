@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Linq;
 using Newtonsoft.Json;
 using Skybrud.Social.Facebook;
 using Skybrud.Social.Facebook.OAuth;
+using Skybrud.Social.Facebook.Objects.Debug;
+using Skybrud.Social.Facebook.Objects.Users;
 using Skybrud.Social.Facebook.Responses;
+using Skybrud.Social.Facebook.Responses.Debug;
+using Skybrud.Social.Facebook.Responses.Users;
 using Skybrud.Social.Umbraco.Facebook;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
@@ -66,7 +71,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
             FacebookOAuthClient client = new FacebookOAuthClient {
                 AppId = options.AppId,
                 AppSecret = options.AppSecret,
-                ReturnUri = options.RedirectUri
+                RedirectUri = options.RedirectUri
             };
 
             // Session expired?
@@ -114,10 +119,10 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 FacebookService service = FacebookService.CreateFromAccessToken(userAccessToken);
 
                 // Make a call to the Facebook API to get information about the user
-                FacebookMeResponse me = service.Methods.Me();
+                FacebookUser me = service.Users.GetUser("me").Body;
 
                 // Get debug information about the access token
-                FacebookDebugTokenResponse debug = service.Methods.DebugToken(userAccessToken);
+                FacebookDebugToken debug = service.Debug.DebugToken(userAccessToken).Body;
 
                 Content.Text += "<p>Hi <strong>" + me.Name + "</strong></p>";
                 Content.Text += "<p>Please wait while you're being redirected...</p>";
@@ -125,10 +130,12 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 // Set the callback data
                 FacebookOAuthData data = new FacebookOAuthData {
                     Id = me.Id,
-                    Name = me.Name ?? me.UserName,
+                    Name = me.Name,
                     AccessToken = userAccessToken,
-                    ExpiresAt = debug.ExpiresAt == null ? default(DateTime) : debug.ExpiresAt.Value,
-                    Scope = debug.Scopes
+                    ExpiresAt = debug.Data.ExpiresAt == null ? default(DateTime) : debug.Data.ExpiresAt.Value,
+                    Scope = (
+                        from scope in debug.Data.Scopes select scope.Name
+                    ).ToArray()
                 };
 
                 // Update the UI and close the popup window
