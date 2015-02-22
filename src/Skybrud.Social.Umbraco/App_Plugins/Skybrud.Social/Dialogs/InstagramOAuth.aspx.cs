@@ -113,10 +113,12 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
             try {
 
                 // Initialize the Instagram service
-                InstagramService service = InstagramService.CreateFromAccessToken(accessToken.Body.Data.AccessToken);
+                InstagramService service = InstagramService.CreateFromAccessToken(accessToken.Body.AccessToken);
 
                 // Get information about the authenticated user
                 InstagramUser user = service.Users.GetSelf().Body.Data;
+
+
 
                 Content.Text += "<p>Hi <strong>" + (user.FullName ?? user.Username) + "</strong></p>";
                 Content.Text += "<p>Please wait while you're being redirected...</p>";
@@ -128,7 +130,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     FullName = user.FullName,
                     Name = user.FullName ?? user.Username,
                     Avatar = user.ProfilePicture,
-                    AccessToken = accessToken.Body.Data.AccessToken
+                    AccessToken = accessToken.Body.AccessToken
                 };
 
                 // Update the UI and close the popup window
