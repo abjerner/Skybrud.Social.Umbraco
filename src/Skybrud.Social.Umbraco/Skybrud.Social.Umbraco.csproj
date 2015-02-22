@@ -127,6 +127,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Skybrud.Social.0.9.1\lib\Skybrud.Social.dll</HintPath>
     </Reference>
+    <Reference Include="Skybrud.WebApi.Json">
+      <HintPath>..\packages\Skybrud.WebApi.Json.1.0.2\lib\Skybrud.WebApi.Json.dll</HintPath>
     </Reference>
     <Reference Include="SQLCE4Umbraco, Version=1.0.5462.37514, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -234,6 +236,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analytics\AnalyticsController.cs" />
+    <Compile Include="Analytics\PropertyEditors\ProfileSelector\AnalyticsProfileData.cs" />
+    <Compile Include="Analytics\PropertyEditors\ProfileSelector\AnalyticsProfilePreValueOptions.cs" />
+    <Compile Include="Analytics\PropertyEditors\ProfileSelector\AnalyticsProfilePropertyEditor.cs" />
+    <Compile Include="Analytics\PropertyEditors\ProfileSelector\AnalyticsProfilePropertyValueConverter.cs" />
     <Compile Include="App_Plugins\Skybrud.Social\Dialogs\FacebookOAuth.aspx.cs">
       <DependentUpon>FacebookOAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,6 +291,9 @@
     <Compile Include="WebApi\SkybrudJsonMediaTypeFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Analytics\ProfileSelector\Controllers.js" />
+    <Content Include="App_Plugins\Skybrud.Social\Analytics\ProfileSelector\PreValueEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\Analytics\ProfileSelector\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\FacebookOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\GoogleOAuth.aspx" />
     <Content Include="App_Plugins\Skybrud.Social\Dialogs\InstagramOAuth.aspx" />

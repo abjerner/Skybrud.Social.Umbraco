@@ -1,0 +1,89 @@
+﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Analytics.ProfileSelector.PreValues.Controller">
+
+	<style> h4 { margin-top: 25px; font-size: 14px; font-weight: bold; } </style>
+
+	<h4>OAuth</h4>
+
+	<small>Enter the OAuth credentials for your Google App.</small>
+
+    <div class="option">
+        <label>
+            <div>
+                <span>Client ID</span>
+                <small>The ID of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientid" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Client Secret</span>
+                <small>The secret of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.clientsecret" />
+        </label>
+    </div>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Redirect URI</span>
+                <small>The redirect URI of the Google app.</small>
+            </div>
+            <input type="text" ng-model="model.value.redirecturi" />
+        </label>
+        <div ng-show="model.value.redirecturi == ''" class="suggestion">
+            Will most likely be: {{suggestedRedirectUri}}
+        </div>
+    </div>
+
+	<h4>Authentication</h4>
+
+	<small>Bacon ipsum dolor amet chuck chicken shoulder short loin bresaola strip steak hamburger short ribs shank pork belly flank prosciutto venison brisket.</small>
+    
+    <div class="option">
+        <label>
+            <div>
+                <span>Mode</span>
+            </div>
+            <select ng-model="mode">
+                <option ng-repeat="item in modes" value="{{item.alias}}" ng-selected="mode == item.alias">{{item.name}}</option>
+            </select>
+        </label>
+    </div>
+
+    <div ng-show="mode == 'config'">
+        <div class="option">
+            <label>
+                <div>
+                    <span>User</span>
+                </div>
+
+                <div ng-show="model.value.user">
+                    <div ng-show="model.value.user.avatar" style="float: left; margin-right: 10px;">
+                        <img src="{{model.value.user.avatar}}" width="50" height="50" alt="" />
+                    </div>
+                    <div style="float: left; margin-right: 10px;">
+                        <div style="margin-bottom: 5px;">
+                            <strong>{{model.value.user.name}}</strong> <span style="font-size: 12px;">(ID: {{model.value.user.id}})</span>
+                        </div>
+                        <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+    
+                <div ng-show="!model.value.user">
+                    <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
+                </div>
+                
+
+            </label>
+        </div>
+    </div>
+
+	<pre>{{mode}}</pre>
+	<pre>{{modes}}</pre>
+
+</div>
