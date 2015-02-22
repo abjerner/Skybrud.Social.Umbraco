@@ -123,9 +123,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Skybrud.Social, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Skybrud.Social, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Skybrud.Social.0.9.0\lib\Skybrud.Social.dll</HintPath>
+      <HintPath>..\packages\Skybrud.Social.0.9.1\lib\Skybrud.Social.dll</HintPath>
+    </Reference>
     </Reference>
     <Reference Include="SQLCE4Umbraco, Version=1.0.5462.37514, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

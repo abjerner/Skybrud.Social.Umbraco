@@ -1,11 +1,8 @@
 ﻿using System;
-using Newtonsoft.Json;
 using Skybrud.Social.Instagram;
 using Skybrud.Social.Instagram.OAuth;
 using Skybrud.Social.Instagram.Objects;
 using Skybrud.Social.Instagram.Responses;
-using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
-using Skybrud.Social.Umbraco.Instagram;
 using Skybrud.Social.Umbraco.Instagram.PropertyEditors.OAuth;
 
 namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
@@ -71,7 +68,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
             InstagramOAuthClient client = new InstagramOAuthClient {
                 ClientId = options.ClientId,
                 ClientSecret = options.ClientSecret,
-                ReturnUri = options.RedirectUri
+                RedirectUri = options.RedirectUri
             };
 
             // Session expired?
@@ -116,7 +113,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
             try {
 
                 // Initialize the Instagram service
-                InstagramService service = InstagramService.CreateFromAccessToken(accessToken.AccessToken);
+                InstagramService service = InstagramService.CreateFromAccessToken(accessToken.Body.Data.AccessToken);
 
                 // Get information about the authenticated user
                 InstagramUser user = service.Users.GetSelf().Body.Data;
@@ -131,7 +128,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     FullName = user.FullName,
                     Name = user.FullName ?? user.Username,
                     Avatar = user.ProfilePicture,
-                    AccessToken = accessToken.AccessToken
+                    AccessToken = accessToken.Body.Data.AccessToken
                 };
 
                 // Update the UI and close the popup window
