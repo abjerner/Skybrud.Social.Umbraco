@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skybrud.Social.Umbraco", "Skybrud.Social.Umbraco\Skybrud.Social.Umbraco.csproj", "{1543F539-657A-4782-8232-719910026973}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skybrud.Social.Umbraco", "Skybrud.Social.Umbraco\Skybrud.Social.Umbraco.csproj", "{1A4FC207-3A5A-43B7-A530-5E5950A6589F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1543F539-657A-4782-8232-719910026973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1543F539-657A-4782-8232-719910026973}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1543F539-657A-4782-8232-719910026973}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1543F539-657A-4782-8232-719910026973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4FC207-3A5A-43B7-A530-5E5950A6589F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4FC207-3A5A-43B7-A530-5E5950A6589F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4FC207-3A5A-43B7-A530-5E5950A6589F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4FC207-3A5A-43B7-A530-5E5950A6589F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
