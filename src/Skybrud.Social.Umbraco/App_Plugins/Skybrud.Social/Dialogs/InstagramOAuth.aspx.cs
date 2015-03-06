@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Web;
+using System.Web.Security;
 using Skybrud.Social.Instagram;
 using Skybrud.Social.Instagram.OAuth;
 using Skybrud.Social.Instagram.Objects;
 using Skybrud.Social.Instagram.Responses;
 using Skybrud.Social.Umbraco.Instagram.PropertyEditors.OAuth;
+using Umbraco.Core.Security;
 
 namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
 
@@ -40,6 +43,19 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
 
         public string AuthErrorDescription {
             get { return Request.QueryString["error_description"]; }
+        }
+
+        protected override void OnPreInit(EventArgs e) {
+
+            base.OnPreInit(e);
+
+            if (PackageHelpers.UmbracoVersion != "7.2.2") return;
+
+            // Handle authentication stuff to counteract bug in Umbraco 7.2.2 (see U4-6342)
+            HttpContextWrapper http = new HttpContextWrapper(Context);
+            FormsAuthenticationTicket ticket = http.GetUmbracoAuthTicket();
+            http.AuthenticateCurrentRequest(ticket, true);
+
         }
 
         protected void Page_Load(object sender, EventArgs e) {

@@ -273,6 +273,7 @@
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPreValueOptions.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyEditor.cs" />
     <Compile Include="Instagram\PropertyEditors\OAuth\InstagramOAuthPropertyValueConverter.cs" />
+    <Compile Include="PackageHelpers.cs" />
     <Compile Include="PreValueHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Twitter\PropertyEditors\OAuth\TwitterOAuthData.cs" />
