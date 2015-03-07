@@ -2,16 +2,10 @@
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using Newtonsoft.Json;
 using Skybrud.Social.Facebook;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Objects.Debug;
 using Skybrud.Social.Facebook.Objects.Users;
-using Skybrud.Social.Facebook.Responses;
-using Skybrud.Social.Facebook.Responses.Debug;
-using Skybrud.Social.Facebook.Responses.Users;
-using Skybrud.Social.Umbraco.Facebook;
-using Skybrud.Social.Umbraco.Facebook.PropertyEditors;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
 

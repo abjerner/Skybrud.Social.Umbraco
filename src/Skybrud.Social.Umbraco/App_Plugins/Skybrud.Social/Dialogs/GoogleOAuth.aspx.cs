@@ -2,10 +2,8 @@
 using System.Collections.Specialized;
 using System.Web;
 using System.Web.Security;
-using Newtonsoft.Json;
 using Skybrud.Social.Google;
 using Skybrud.Social.Google.OAuth;
-using Skybrud.Social.Umbraco.Google;
 using Skybrud.Social.Umbraco.Google.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
 

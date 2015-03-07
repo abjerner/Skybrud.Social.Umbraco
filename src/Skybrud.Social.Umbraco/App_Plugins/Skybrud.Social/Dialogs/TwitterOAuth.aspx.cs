@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Web;
 using System.Web.Security;
-using Newtonsoft.Json;
 using Skybrud.Social.OAuth;
 using Skybrud.Social.Twitter;
 using Skybrud.Social.Twitter.Exceptions;
 using Skybrud.Social.Twitter.OAuth;
 using Skybrud.Social.Twitter.Objects;
-using Skybrud.Social.Twitter.Responses;
-using Skybrud.Social.Umbraco.Twitter;
-using Skybrud.Social.Umbraco.Twitter.PropertyEditors;
 using Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
 
