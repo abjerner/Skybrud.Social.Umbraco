@@ -8,6 +8,8 @@ using Skybrud.Social.Facebook.Objects.Debug;
 using Skybrud.Social.Facebook.Objects.Users;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
+using Skybrud.Social.Facebook.Responses.Accounts;
+using Skybrud.Social.Facebook.Objects.Accounts;
 
 namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
     
@@ -82,6 +84,8 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 AppId = options.AppId,
                 AppSecret = options.AppSecret,
                 RedirectUri = options.RedirectUri
+
+//TODO: Interferir aqui pra add multiplas permissões
             };
 
             // Session expired?
@@ -106,7 +110,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, "read_stream", "user_status", "user_about_me", "user_photos");
+                string url = client.GetAuthorizationUrl(state, "manage_pages",/*"read_stream",*/ "user_status", "user_about_me", "user_photos");
                 
                 // Redirect the user
                 Response.Redirect(url);
@@ -123,13 +127,36 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 return;
             }
 
-            try {
+            //try {
 
                 // Initialize the Facebook service (no calls are made here)
                 FacebookService service = FacebookService.CreateFromAccessToken(userAccessToken);
 
                 // Make a call to the Facebook API to get information about the user
                 FacebookUser me = service.Users.GetUser("me").Body;
+
+
+
+
+            //DIogo:
+//Funciona só com permissão "manage_pages"
+        // Make the request to the API
+        FacebookAccountsResponse response = service.Accounts.GetAccounts();
+
+        // Loop through the accounts
+        foreach (FacebookAccount account in response.Body.Data)
+        {
+            // Write some of the account information to the console
+            Trace.Write("Name: " + account.Name);
+            Trace.Write("Category: " + account.Category);
+            Trace.Write("Token: " + account.AccessToken);
+            Trace.Write(Environment.NewLine);
+            Trace.Write(Environment.NewLine);
+        }
+
+
+
+
 
                 // Get debug information about the access token
                 FacebookDebugToken debug = service.Debug.DebugToken(userAccessToken).Body;
@@ -145,19 +172,32 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     ExpiresAt = debug.Data.ExpiresAt == null ? default(DateTime) : debug.Data.ExpiresAt.Value,
                     Scope = (
                         from scope in debug.Data.Scopes select scope.Name
-                    ).ToArray()
+                    ).ToArray(),
+
+                    BusinessPages = response.Body.Data.
+                    Select(ac => new FacebookBusinessPageData() { 
+                        Id = ac.Id, Name = ac.Name, AccessToken = ac.AccessToken 
+                    }).ToArray(),
+                    SelectedBusinessPage = null
                 };
+
+
+
+
+
+
+
 
                 // Update the UI and close the popup window
                 Page.ClientScript.RegisterClientScriptBlock(GetType(), "callback", String.Format(
                     "self.opener." + Callback + "({0}); window.close();",
-                    data.Serialize()
+                    data.Serialize()//Diogo: salva o JSON via callback x no AngularJS!
                 ), true);
 
-            } catch (Exception ex) {
-                Content.Text = "<div class=\"error\"><b>Unable to get user information</b><br />" + ex.Message + "</div>";
+            //} catch (Exception ex) {
+               // Content.Text = "<div class=\"error\"><b>Unable to get user information</b><br />" + ex.Message + "</div>";
                 return;
-            }
+            //}
 
         }
     

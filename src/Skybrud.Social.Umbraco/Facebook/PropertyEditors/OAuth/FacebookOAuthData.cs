@@ -3,7 +3,21 @@ using Newtonsoft.Json;
 using Skybrud.Social.Facebook;
 
 namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
-    
+
+    //Diogo:::
+    public class FacebookBusinessPageData
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
+    }
+
+
     public class FacebookOAuthData {
 
         #region Private fields
@@ -44,6 +58,15 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
         /// </summary>
         [JsonProperty("scope")]
         public string[] Scope { get; set; }
+
+
+[JsonProperty("business_pages")]
+public FacebookBusinessPageData[] BusinessPages { get; set; }
+
+[JsonProperty("selected_business_page")]
+public FacebookBusinessPageData SelectedBusinessPage { get; set; }//Inicial = NULL
+
+
 
         /// <summary>
         /// Gets whether the OAuth data is valid - that is whether the OAuth data has a valid

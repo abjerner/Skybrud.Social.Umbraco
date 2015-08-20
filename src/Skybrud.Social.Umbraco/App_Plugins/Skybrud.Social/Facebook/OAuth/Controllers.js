@@ -7,14 +7,44 @@
     var state = editorState.current;
 
     $scope.expiresDays = null;
-
+    
     $scope.callback = function (data) {
 
-        $scope.model.value = data;
+        $scope.model.value = data;//Diogo: Seta o JSON retornado pelo FacebookOAuth.aspx como valor do MODEL
 
+        //Diogo: Carrega dados quando autoriza pela 1° vez
         updateUI();
 
+        //Diogo: carregar dropDownList() com business Pages
+        updateBusinessPagesDropdownUI();
     };
+
+
+    function updateBusinessPagesDropdownUI() {
+
+        //load itens do COMBO
+        var array = $scope.model.value.business_pages;
+        if (array) {
+            //for (var i = 0; i < array.length; i++) {
+            //    console.log(array[i]);
+            //}
+            //se possui accounts carrega no dropdown
+            $scope.accounts = array;
+        }
+
+
+        //TODO: se tiver o ID de uma página salva, carrega os dados no MODEL e seta no combo
+        if ($scope.model.value && $scope.model.value.selected_business_page) {
+            $scope.selectedBusinessPage = $scope.model.value.selected_business_page;
+        }
+
+
+        //registra EVENTO ao selecionar valor no combo
+        $scope.businessPageSelected = function (selectedAccount) {
+            $scope.selectedBusinessPage = selectedAccount;//facilidade de acesso na View!
+            $scope.model.value.selected_business_page = selectedAccount;//persistência no Umbraco!
+        };
+    }
 
     $scope.authorize = function () {
 
@@ -52,7 +82,9 @@
 
     }
 
+    //entrou na página tenta carregar DADOS salvos
     updateUI();
+    updateBusinessPagesDropdownUI();//Diogo:
 
     // Register the callback function in the global scope
     window[alias] = $scope.callback;
