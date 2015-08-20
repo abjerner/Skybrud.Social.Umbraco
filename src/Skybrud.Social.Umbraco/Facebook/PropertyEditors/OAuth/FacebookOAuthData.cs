@@ -4,20 +4,6 @@ using Skybrud.Social.Facebook;
 
 namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
 
-    //Diogo:::
-    public class FacebookBusinessPageData
-    {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-        
-        [JsonProperty("name")]
-        public string Name { get; set; }
-        
-        [JsonProperty("access_token")]
-        public string AccessToken { get; set; }
-    }
-
-
     public class FacebookOAuthData {
 
         #region Private fields
@@ -59,14 +45,18 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
         [JsonProperty("scope")]
         public string[] Scope { get; set; }
 
+        /// <summary>
+        /// Gets an array of business accounts (pages).
+        /// Requires "manage_pages" permission
+        /// </summary>
+        [JsonProperty("business_pages")]
+        public FacebookBusinessPageData[] BusinessPages { get; set; }
 
-[JsonProperty("business_pages")]
-public FacebookBusinessPageData[] BusinessPages { get; set; }
-
-[JsonProperty("selected_business_page")]
-public FacebookBusinessPageData SelectedBusinessPage { get; set; }//Inicial = NULL
-
-
+        /// <summary>
+        /// Stores a Business Page data selected by the user
+        /// </summary>
+        [JsonProperty("selected_business_page")]
+        public FacebookBusinessPageData SelectedBusinessPage { get; set; }
 
         /// <summary>
         /// Gets whether the OAuth data is valid - that is whether the OAuth data has a valid
@@ -107,6 +97,17 @@ public FacebookBusinessPageData SelectedBusinessPage { get; set; }//Inicial = NU
 
         #endregion
 
+    }
+
+    public class FacebookBusinessPageData {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
     }
 
 }

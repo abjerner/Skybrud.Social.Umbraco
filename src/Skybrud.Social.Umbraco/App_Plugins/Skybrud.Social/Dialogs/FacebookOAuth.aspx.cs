@@ -85,7 +85,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 AppSecret = options.AppSecret,
                 RedirectUri = options.RedirectUri
 
-//TODO: Interferir aqui pra add multiplas permissões
+                //TODO: Adicionar array p/ escolha de múltiplas permissões
             };
 
             // Session expired?
@@ -110,7 +110,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, "manage_pages",/*"read_stream",*/ "user_status", "user_about_me", "user_photos");
+                string url = client.GetAuthorizationUrl(state, "manage_pages", /*"user_posts",*/ "user_status", "user_about_me", "user_photos");//TODO: Set permissions dinamically
                 
                 // Redirect the user
                 Response.Redirect(url);
@@ -127,7 +127,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 return;
             }
 
-            //try {
+            try {
 
                 // Initialize the Facebook service (no calls are made here)
                 FacebookService service = FacebookService.CreateFromAccessToken(userAccessToken);
@@ -135,28 +135,8 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 // Make a call to the Facebook API to get information about the user
                 FacebookUser me = service.Users.GetUser("me").Body;
 
-
-
-
-            //DIogo:
-//Funciona só com permissão "manage_pages"
-        // Make the request to the API
-        FacebookAccountsResponse response = service.Accounts.GetAccounts();
-
-        // Loop through the accounts
-        foreach (FacebookAccount account in response.Body.Data)
-        {
-            // Write some of the account information to the console
-            Trace.Write("Name: " + account.Name);
-            Trace.Write("Category: " + account.Category);
-            Trace.Write("Token: " + account.AccessToken);
-            Trace.Write(Environment.NewLine);
-            Trace.Write(Environment.NewLine);
-        }
-
-
-
-
+                //Get accounts information. Only works with "manage_pages" permission.
+                FacebookAccountsResponse response = service.Accounts.GetAccounts();
 
                 // Get debug information about the access token
                 FacebookDebugToken debug = service.Debug.DebugToken(userAccessToken).Body;
@@ -169,35 +149,29 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     Id = me.Id,
                     Name = me.Name,
                     AccessToken = userAccessToken,
-                    ExpiresAt = debug.Data.ExpiresAt == null ? default(DateTime) : debug.Data.ExpiresAt.Value,
+                    ExpiresAt = debug.Data.ExpiresAt == null ? DateTime.Now.AddDays(60) : debug.Data.ExpiresAt.Value,//FIX: debug.data.ExpiresAt = null when manage_pages permission is granted
                     Scope = (
                         from scope in debug.Data.Scopes select scope.Name
                     ).ToArray(),
 
                     BusinessPages = response.Body.Data.
-                    Select(ac => new FacebookBusinessPageData() { 
-                        Id = ac.Id, Name = ac.Name, AccessToken = ac.AccessToken 
-                    }).ToArray(),
+                        Select(ac => new FacebookBusinessPageData() { 
+                            Id = ac.Id, Name = ac.Name, AccessToken = ac.AccessToken 
+                        }).ToArray(),
                     SelectedBusinessPage = null
                 };
-
-
-
-
-
-
 
 
                 // Update the UI and close the popup window
                 Page.ClientScript.RegisterClientScriptBlock(GetType(), "callback", String.Format(
                     "self.opener." + Callback + "({0}); window.close();",
-                    data.Serialize()//Diogo: salva o JSON via callback x no AngularJS!
+                    data.Serialize()//Save JSON data through callback parameter
                 ), true);
 
-            //} catch (Exception ex) {
-               // Content.Text = "<div class=\"error\"><b>Unable to get user information</b><br />" + ex.Message + "</div>";
+            } catch (Exception ex) {
+                Content.Text = "<div class=\"error\"><b>Unable to get user information</b><br />" + ex.Message + "</div>";
                 return;
-            //}
+            }
 
         }
     
