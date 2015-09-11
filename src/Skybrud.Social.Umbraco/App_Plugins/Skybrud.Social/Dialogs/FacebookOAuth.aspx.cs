@@ -84,7 +84,6 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 AppId = options.AppId,
                 AppSecret = options.AppSecret,
                 RedirectUri = options.RedirectUri
-
                 //TODO: Adicionar array p/ escolha de múltiplas permissões
             };
 
@@ -139,7 +138,14 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 FacebookAccountsResponse response = service.Accounts.GetAccounts();
 
                 // Get debug information about the access token
-                FacebookDebugToken debug = service.Debug.DebugToken(userAccessToken).Body;
+                FacebookDebugToken debugToken = null;
+
+                try {
+                    debugToken = service.Debug.DebugToken(userAccessToken).Body;
+                } catch (Exception ex)
+                {
+                    Content.Text = "<div class=\"error\"><b>Unable to acquire debug token. Are you a developer?</b><br />" + ex.Message + "</div>";
+                }
 
                 Content.Text += "<p>Hi <strong>" + me.Name + "</strong></p>";
                 Content.Text += "<p>Please wait while you're being redirected...</p>";
@@ -149,17 +155,25 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     Id = me.Id,
                     Name = me.Name,
                     AccessToken = userAccessToken,
-                    ExpiresAt = debug.Data.ExpiresAt == null ? DateTime.Now.AddDays(60) : debug.Data.ExpiresAt.Value,//FIX: debug.data.ExpiresAt = null when manage_pages permission is granted
-                    Scope = (
-                        from scope in debug.Data.Scopes select scope.Name
-                    ).ToArray(),
+                    ExpiresAt = DateTime.Now.AddDays(60),
+                    Scope = null,
 
                     BusinessPages = response.Body.Data.
                         Select(ac => new FacebookBusinessPageData() { 
-                            Id = ac.Id, Name = ac.Name, AccessToken = ac.AccessToken 
+                            Id = ac.Id, 
+                            Name = ac.Name, 
+                            AccessToken = ac.AccessToken 
                         }).ToArray(),
                     SelectedBusinessPage = null
                 };
+
+                if (debugToken != null)
+                {
+                    data.ExpiresAt = (debugToken.Data.ExpiresAt ?? DateTime.Now.AddDays(60));//NULL when manage_pages permission is granted
+                    data.Scope = (
+                        from scope in debugToken.Data.Scopes select scope.Name
+                    ).ToArray();
+                }
 
 
                 // Update the UI and close the popup window
