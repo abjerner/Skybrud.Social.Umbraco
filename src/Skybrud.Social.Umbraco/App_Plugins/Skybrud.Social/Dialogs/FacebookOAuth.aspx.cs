@@ -84,7 +84,6 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 AppId = options.AppId,
                 AppSecret = options.AppSecret,
                 RedirectUri = options.RedirectUri
-                //TODO: Adicionar array p/ escolha de múltiplas permissões
             };
 
             // Session expired?
@@ -109,7 +108,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, "manage_pages", /*"user_posts",*/ "user_status", "user_about_me", "user_photos");//TODO: Set permissions dinamically
+                string url = client.GetAuthorizationUrl(state, options.Permissions);
                 
                 // Redirect the user
                 Response.Redirect(url);

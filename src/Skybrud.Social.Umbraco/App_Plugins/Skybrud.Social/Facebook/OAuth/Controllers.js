@@ -90,12 +90,30 @@ angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Co
         $scope.model.value = {
             appid: '',
             appsecret: '',
-            redirecturi: ''
+            redirecturi: '',
+            permissions: []
         };
     }
+
+    //case permissions does not exist (update)
+    if (!$scope.model.value.permissions) {
+        $scope.model.value.permissions = [];
+    }
+
+    $scope.allPermissions = ["user_about_me", "user_photos", "user_status", "user_likes", "user_posts", "manage_pages"];
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/FacebookOAuth.aspx';
 
     assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
 
+    $scope.toggleSelection = function toggleSelection(permName) {
+        var idx = $scope.model.value.permissions.indexOf(permName);
+        
+        if (idx > -1) {// is currently selected
+            $scope.model.value.permissions.splice(idx, 1);
+        }
+        else {// is newly selected
+            $scope.model.value.permissions.push(permName);
+        }
+    };
 }]);
