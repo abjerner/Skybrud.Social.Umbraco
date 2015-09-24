@@ -99,8 +99,23 @@ angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Co
     if (!$scope.model.value.permissions) {
         $scope.model.value.permissions = [];
     }
+    
+    //https://developers.facebook.com/docs/facebook-login/permissions/v2.4#reference
+    $scope.allPermissions = [
+        //Permissions That Do Not Require Review
+        "public_profile", "user_friends", "email",
 
-    $scope.allPermissions = ["user_about_me", "user_photos", "user_status", "user_likes", "user_posts", "manage_pages"];
+        //Extended Profile Properties
+        "user_about_me", "user_birthday",
+        "user_hometown", "user_likes", "user_location", "user_managed_groups",
+        "user_photos", "user_posts", "user_status", "user_videos",
+        /*
+        "user_education_history", "user_events", "user_games_activity", "user_website", "user_work_history",
+        "user_actions.books", "user_actions.fitness", "user_actions.music", "user_actions.news", "user_actions.video",
+        */
+        //Extended Permissions
+        "manage_pages", "publish_pages", "publish_actions"
+    ];
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/FacebookOAuth.aspx';
 
@@ -116,4 +131,5 @@ angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Co
             $scope.model.value.permissions.push(permName);
         }
     };
+    //TODO: remove all elements after UI loads and then rebuild array only with current checked permissions
 }]);

@@ -26,7 +26,7 @@
         </div>
         <div style="clear: both;"></div>
         
-        <div style="float: left; margin-right: 10px;">
+        <div style="float: left; margin-right: 10px;" ng-show="accounts">
             <h5>Business Page Accounts</h5>
             <select name="business-page" ng-model="selectedBusinessPage" ng-change="businessPageSelected(selectedBusinessPage)" ng-options="bp.name for bp in accounts track by bp.id">
                 <option value="">choose an account...</option>
