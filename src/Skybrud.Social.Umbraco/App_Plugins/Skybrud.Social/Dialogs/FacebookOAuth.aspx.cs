@@ -106,7 +106,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, "read_stream", "user_status", "user_about_me", "user_photos");
+                string url = client.GetAuthorizationUrl(state, "user_status", "user_about_me", "user_photos");
                 
                 // Redirect the user
                 Response.Redirect(url);
