@@ -9,7 +9,6 @@ using Skybrud.Social.Facebook.Objects.Users;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
 using Skybrud.Social.Facebook.Responses.Accounts;
-using Skybrud.Social.Facebook.Objects.Accounts;
 
 namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
     
@@ -108,7 +107,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, options.Permissions);
+                string url = client.GetAuthorizationUrl(state, options.Scope);
                 
                 // Redirect the user
                 Response.Redirect(url);
@@ -133,16 +132,19 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 // Make a call to the Facebook API to get information about the user
                 FacebookUser me = service.Users.GetUser("me").Body;
 
-                //Get accounts information. Only works with "manage_pages" permission.
-                FacebookAccountsResponse response = service.Accounts.GetAccounts();
+                //Get accounts information. Only works with "manage_pages" permission
+                FacebookAccountsResponse response = null;
+                if (options.Scope.Contains("manage_pages")) {
+                    response = service.Accounts.GetAccounts();
+                }
+
 
                 // Get debug information about the access token
                 FacebookDebugToken debugToken = null;
 
                 try {
                     debugToken = service.Debug.DebugToken(userAccessToken).Body;
-                } catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Content.Text = "<div class=\"error\"><b>Unable to acquire debug token. Are you a developer?</b><br />" + ex.Message + "</div>";
                 }
 
@@ -155,25 +157,26 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     Name = me.Name,
                     AccessToken = userAccessToken,
                     ExpiresAt = DateTime.Now.AddDays(60),
-                    Scope = null,
-
-                    BusinessPages = response.Body.Data.
-                        Select(ac => new FacebookBusinessPageData() { 
-                            Id = ac.Id, 
-                            Name = ac.Name, 
-                            AccessToken = ac.AccessToken 
-                        }).ToArray(),
+                    BusinessPages = new FacebookBusinessPageData[0],
                     SelectedBusinessPage = null
                 };
 
-                if (debugToken != null)
-                {
+                // Set the the business pages (if available)
+                if (response != null) {
+                    data.BusinessPages = response.Body.Data.Select(ac => new FacebookBusinessPageData {
+                        Id = ac.Id,
+                        Name = ac.Name,
+                        AccessToken = ac.AccessToken
+                    }).ToArray();
+                }
+
+                // Update the OAuth data with information from the debug token
+                if (debugToken != null) {
                     data.ExpiresAt = (debugToken.Data.ExpiresAt ?? DateTime.Now.AddDays(60));//NULL when manage_pages permission is granted
                     data.Scope = (
                         from scope in debugToken.Data.Scopes select scope.Name
                     ).ToArray();
                 }
-
 
                 // Update the UI and close the popup window
                 Page.ClientScript.RegisterClientScriptBlock(GetType(), "callback", String.Format(
@@ -183,7 +186,6 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
 
             } catch (Exception ex) {
                 Content.Text = "<div class=\"error\"><b>Unable to get user information</b><br />" + ex.Message + "</div>";
-                return;
             }
 
         }

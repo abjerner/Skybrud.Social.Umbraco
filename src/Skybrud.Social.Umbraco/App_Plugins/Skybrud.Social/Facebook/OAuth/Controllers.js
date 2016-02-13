@@ -45,7 +45,7 @@
         url += "&contentTypeAlias=" + state.contentTypeAlias;
         url += "&propertyAlias=" + $scope.model.alias;
 
-        window.open(url, 'Facebook OAuth', 'scrollbars=no,resizable=yes,menubar=no,width=800,height=600');
+        window.open(url, 'Facebook OAuth', 'scrollbars=no,resizable=yes,menubar=no,width=1050,height=800');
 
     };
 
@@ -84,51 +84,40 @@
 
 }]);
 
-angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
+angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Controller", ['$scope', '$http', 'dialogService', function ($scope, $http, dialogService) {
     
     if (!$scope.model.value) {
         $scope.model.value = {
             appid: '',
             appsecret: '',
             redirecturi: '',
-            permissions: []
+            scope: []
         };
     }
 
-    //case permissions does not exist (update)
-    if (!$scope.model.value.permissions) {
-        $scope.model.value.permissions = [];
-    }
-    
-    //https://developers.facebook.com/docs/facebook-login/permissions/v2.4#reference
-    $scope.allPermissions = [
-        //Permissions That Do Not Require Review
-        "public_profile", "user_friends", "email",
+    if (!$scope.model.value.scope) $scope.model.value.scope = [];
 
-        //Extended Profile Properties
-        "user_about_me", "user_birthday",
-        "user_hometown", "user_likes", "user_location", "user_managed_groups",
-        "user_photos", "user_posts", "user_status", "user_videos",
-        /*
-        "user_education_history", "user_events", "user_games_activity", "user_website", "user_work_history",
-        "user_actions.books", "user_actions.fitness", "user_actions.music", "user_actions.news", "user_actions.video",
-        */
-        //Extended Permissions
-        "manage_pages", "publish_pages", "publish_actions"
-    ];
+    $scope.addScope = function () {
+
+        var d = dialogService.open({
+            modalClass: 'SocialDialog',
+            template: '/App_Plugins/Skybrud.Social/Facebook/OAuth/ScopesDialog.html',
+            show: true,
+            callback: function (scopes) {
+                $scope.model.value.scope = scopes;
+            },
+            selection: $scope.model.value.scope
+        });
+
+        d.element[0].style.width = '1000px';
+        d.element[0].style.marginLeft = '-500px';
+
+    };
+
+    $scope.removeScope = function (index) {
+        $scope.model.value.scope.splice(index, 1);
+    };
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/FacebookOAuth.aspx';
 
-
-    $scope.toggleSelection = function toggleSelection(permName) {
-        var idx = $scope.model.value.permissions.indexOf(permName);
-        
-        if (idx > -1) {// is currently selected
-            $scope.model.value.permissions.splice(idx, 1);
-        }
-        else {// is newly selected
-            $scope.model.value.permissions.push(permName);
-        }
-    };
-    //TODO: remove all elements after UI loads and then rebuild array only with current checked permissions
 }]);

@@ -4,7 +4,7 @@
     small + .option { margin-top: 20px; }
     .option + .option { margin-top: 25px; }
     
-    .option > label > div { display: inline-block; width: 20%; }
+    /*.option > label > div { display: inline-block; width: 20%; }*/
     .option > label > input { width: 75%; }
     
     strong { font-weight: bold; color: #000; }
@@ -19,7 +19,136 @@
         line-height: 13px;
         color: #b3b3b3!important;
     }
+    
+    .option > label > div { float: left; width: 20%; }
+    .option > div { margin-left: 20%; }
+    .option:after { content: ""; display: table; clear: both; }
 
 }
 
 
+.skybrudsocialprevalue2 {
+
+    .notice { background: #2E8AEA; color: white; padding: 10px; }
+    .notice strong { color: white; }
+    .notice.icon > div { padding-left: 25px; }
+    .notice i.icon { float: left; font-size: 16px; }
+        
+    .scope {
+        margin: 0 7px 7px 0; padding: 7px; background: #2e8aea;   
+        &.analytics { background: #f7991c; }
+        &.youtube { background: #b00; }
+    }
+    .scope i { cursor: pointer; }
+        
+    .scope.add { background: #72A74E; cursor: pointer; }
+
+    .scopes { display: flex; flex-wrap: wrap;}
+
+    label { float: left; width: 19%; display: block; padding: 0 !important; }
+
+    .option {
+        > div { margin-left: 20%; }
+        input { width: 75%; }
+        &:after { content: ""; display: table; clear: both; }
+    }
+    
+    small + .option { margin-top: 20px; }
+    .option + .option { margin-top: 25px; }
+    
+    .suggestion {
+        margin-top: 2px;
+        font-size: 11px;
+        line-height: 13px;
+        color: #b3b3b3!important;
+    }
+
+}
+
+
+
+
+.modal.fade.in.SocialDialog {
+    top: 60px !important;
+    border-radius: 0;
+    border: none !important;
+    outline: 6px solid rgba(53, 53, 53, 0.85);
+    outline: 6px solid rgba(53, 53, 53, 0.35);
+    -webkit-box-shadow: non;
+    -moz-box-shadow: non;
+    box-shadow: none;
+    background: white;
+    position: absolute;
+    h5 {
+        border-bottom: 1px solid #D9D9D9;
+        background: #F8F8F8;
+        margin: -10px;
+        margin-bottom: 20px;
+        color: #666;
+        padding: 10px 10px 9px 10px;
+    }
+}
+
+.SocialDialog {
+
+    .table.scopes {
+        .col-checkbox {
+            width: 25px;
+            text-align: center;
+        }
+        .col-name {
+            width: 150px;
+        }
+        input[type=checkbox] {
+            margin: 0;
+        }
+    }
+
+    > div {
+        position: relative;
+        padding-bottom: 51px;
+    }
+    
+    @import "Table";
+
+}
+
+.SocialDialogHeader {
+    border-bottom: 1px solid #D9D9D9;
+    background: #F8F8F8;
+    padding: 10px 10px 9px 10px;
+}
+
+.SocialDialogClose {
+    float: right;
+    cursor: pointer;
+    margin: 3px 10px 0 10px;
+    width: 13px;
+    height: 13px;
+    background: url('https://admin.movieapi.org/dev/modal-icons.png') no-repeat 0 -26px;
+    &:hover {
+        background-position: 0 -39px;
+    }
+}
+
+.SocialDialogTitle {
+    font-weight: bold;
+    color: #666;
+}
+
+.SocialDialogContent {
+    overflow-y: auto;
+    max-height: 550px;
+    padding: 20px;
+}
+
+.SocialDialogFooter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-top: 1px solid #D9D9D9;
+    background: #F8F8F8;
+    padding: 10px;
+    text-align: right;
+}

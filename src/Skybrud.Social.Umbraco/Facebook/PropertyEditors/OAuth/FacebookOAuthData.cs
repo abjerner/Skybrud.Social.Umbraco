@@ -100,6 +100,7 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
     }
 
     public class FacebookBusinessPageData {
+    
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -108,6 +109,7 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
 
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
+    
     }
 
 }

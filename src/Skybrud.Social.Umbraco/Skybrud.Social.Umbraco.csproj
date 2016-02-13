@@ -261,6 +261,8 @@
     <Compile Include="App_Plugins\Skybrud.Social\Dialogs\TwitterOAuth.aspx.designer.cs">
       <DependentUpon>TwitterOAuth.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\Dialogs.js" />
+    <Compile Include="Controllers\Api\FacebookController.cs" />
     <Compile Include="Facebook\PropertyEditors\OAuth\FacebookOAuthPropertyValueConverter.cs" />
     <Compile Include="Facebook\PropertyEditors\OAuth\FacebookOAuthData.cs" />
     <Compile Include="Facebook\PropertyEditors\OAuth\FacebookOAuthPreValueOptions.cs" />
@@ -287,6 +289,7 @@
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\PropertyEditor.html" />
+    <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\ScopesDialog.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\Controllers.js" />
@@ -299,6 +302,12 @@
     <Content Include="App_Plugins\Skybrud.Social\Social.min.css">
       <DependentUpon>Social.less</DependentUpon>
     </Content>
+    <Content Include="App_Plugins\Skybrud.Social\Table.css">
+      <DependentUpon>Table.less</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Skybrud.Social\Table.min.css">
+      <DependentUpon>Table.css</DependentUpon>
+    </Content>
     <Content Include="App_Plugins\Skybrud.Social\Twitter\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Twitter\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Twitter\OAuth\Controllers.js" />
@@ -308,7 +317,20 @@
     <Content Include="App_Plugins\Skybrud.Social\Social.less" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Social.css.map">
+      <DependentUpon>Social.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="App_Plugins\Skybrud.Social\package.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Table.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Skybrud.Social\Table.css.map">
+      <DependentUpon>Table.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -336,15 +358,16 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>rmdir "$(SolutionDir)\..\package\files" /S /Q
+    <PostBuildEvent>rmdir "$(SolutionDir)\..\files" /S /Q
 
-xcopy "$(ProjectDir)bin\Skybrud.Social.dll"		"$(SolutionDir)\..\package\files\bin\" /y /s
-xcopy "$(ProjectDir)bin\Skybrud.Social.Umbraco.dll"		"$(SolutionDir)\..\package\files\bin\" /y /s
+xcopy "$(ProjectDir)bin\Skybrud.Social.dll"		"$(SolutionDir)\..\files\bin\" /y /s
+xcopy "$(ProjectDir)bin\Skybrud.Social.Umbraco.dll"		"$(SolutionDir)\..\files\bin\" /y /s
 
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.js" 	"$(SolutionDir)\..\package\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.html"	"$(SolutionDir)\..\package\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.css"	"$(SolutionDir)\..\package\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.aspx"	"$(SolutionDir)\..\package\files\App_Plugins\Skybrud.Social\" /y /s</PostBuildEvent>
+xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.js" 	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.html"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.css"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.aspx"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.manifest"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
