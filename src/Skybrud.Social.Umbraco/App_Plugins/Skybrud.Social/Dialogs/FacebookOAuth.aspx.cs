@@ -8,6 +8,8 @@ using Skybrud.Social.Facebook.Objects.Debug;
 using Skybrud.Social.Facebook.Objects.Users;
 using Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth;
 using Umbraco.Core.Security;
+using Skybrud.Social.Facebook.Responses.Accounts;
+using Skybrud.Social.Facebook.Objects.Accounts;
 
 namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
     
@@ -106,7 +108,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Session["Skybrud.Social_" + state] = new[] {Callback, ContentTypeAlias, PropertyAlias};
 
                 // Construct the authorization URL
-                string url = client.GetAuthorizationUrl(state, "user_status", "user_about_me", "user_photos");
+                string url = client.GetAuthorizationUrl(state, options.Permissions);
                 
                 // Redirect the user
                 Response.Redirect(url);
@@ -131,8 +133,18 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 // Make a call to the Facebook API to get information about the user
                 FacebookUser me = service.Users.GetUser("me").Body;
 
+                //Get accounts information. Only works with "manage_pages" permission.
+                FacebookAccountsResponse response = service.Accounts.GetAccounts();
+
                 // Get debug information about the access token
-                FacebookDebugToken debug = service.Debug.DebugToken(userAccessToken).Body;
+                FacebookDebugToken debugToken = null;
+
+                try {
+                    debugToken = service.Debug.DebugToken(userAccessToken).Body;
+                } catch (Exception ex)
+                {
+                    Content.Text = "<div class=\"error\"><b>Unable to acquire debug token. Are you a developer?</b><br />" + ex.Message + "</div>";
+                }
 
                 Content.Text += "<p>Hi <strong>" + me.Name + "</strong></p>";
                 Content.Text += "<p>Please wait while you're being redirected...</p>";
@@ -142,16 +154,31 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                     Id = me.Id,
                     Name = me.Name,
                     AccessToken = userAccessToken,
-                    ExpiresAt = debug.Data.ExpiresAt == null ? default(DateTime) : debug.Data.ExpiresAt.Value,
-                    Scope = (
-                        from scope in debug.Data.Scopes select scope.Name
-                    ).ToArray()
+                    ExpiresAt = DateTime.Now.AddDays(60),
+                    Scope = null,
+
+                    BusinessPages = response.Body.Data.
+                        Select(ac => new FacebookBusinessPageData() { 
+                            Id = ac.Id, 
+                            Name = ac.Name, 
+                            AccessToken = ac.AccessToken 
+                        }).ToArray(),
+                    SelectedBusinessPage = null
                 };
+
+                if (debugToken != null)
+                {
+                    data.ExpiresAt = (debugToken.Data.ExpiresAt ?? DateTime.Now.AddDays(60));//NULL when manage_pages permission is granted
+                    data.Scope = (
+                        from scope in debugToken.Data.Scopes select scope.Name
+                    ).ToArray();
+                }
+
 
                 // Update the UI and close the popup window
                 Page.ClientScript.RegisterClientScriptBlock(GetType(), "callback", String.Format(
                     "self.opener." + Callback + "({0}); window.close();",
-                    data.Serialize()
+                    data.Serialize()//Save JSON data through callback parameter
                 ), true);
 
             } catch (Exception ex) {

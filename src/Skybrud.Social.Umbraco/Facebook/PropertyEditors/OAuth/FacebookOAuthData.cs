@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Skybrud.Social.Facebook;
 
 namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
-    
+
     public class FacebookOAuthData {
 
         #region Private fields
@@ -46,6 +46,19 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
         public string[] Scope { get; set; }
 
         /// <summary>
+        /// Gets an array of business accounts (pages).
+        /// Requires "manage_pages" permission
+        /// </summary>
+        [JsonProperty("business_pages")]
+        public FacebookBusinessPageData[] BusinessPages { get; set; }
+
+        /// <summary>
+        /// Stores a Business Page data selected by the user
+        /// </summary>
+        [JsonProperty("selected_business_page")]
+        public FacebookBusinessPageData SelectedBusinessPage { get; set; }
+
+        /// <summary>
         /// Gets whether the OAuth data is valid - that is whether the OAuth data has a valid
         /// access token and the expiration timestamp hasn't been passed. Calling this property
         /// will not check the validate the access token against the API.
@@ -84,6 +97,17 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
 
         #endregion
 
+    }
+
+    public class FacebookBusinessPageData {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
     }
 
 }
