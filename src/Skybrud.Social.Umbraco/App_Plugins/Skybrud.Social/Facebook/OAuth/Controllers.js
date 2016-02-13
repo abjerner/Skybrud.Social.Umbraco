@@ -119,7 +119,6 @@ angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Co
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/FacebookOAuth.aspx';
 
-    assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
 
     $scope.toggleSelection = function toggleSelection(permName) {
         var idx = $scope.model.value.permissions.indexOf(permName);

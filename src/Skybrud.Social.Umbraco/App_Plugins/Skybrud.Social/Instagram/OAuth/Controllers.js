@@ -45,6 +45,4 @@ angular.module("umbraco").controller("Skybrud.Social.Instagram.OAuth.PreValues.C
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/InstagramOAuth.aspx';
 
-    assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
-
 }]);

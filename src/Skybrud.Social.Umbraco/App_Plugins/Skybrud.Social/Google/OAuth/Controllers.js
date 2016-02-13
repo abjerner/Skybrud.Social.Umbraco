@@ -43,6 +43,4 @@ angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Cont
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/GoogleOAuth.aspx';
 
-    assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
-
 }]);

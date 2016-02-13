@@ -1,0 +1,81 @@
+﻿﻿{
+	propertyEditors: [
+		{
+			alias: "Skybrud.Social.Facebook.OAuth",
+			name: "Skybrud.Social - Facebook OAuth",
+			editor: {
+				view: "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PropertyEditor.html",
+				valueType: "JSON"	
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Configuration",
+						key: "config",
+						view: "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PreValueEditor.html"
+					}
+				]
+			}
+		},
+		{
+			alias: "Skybrud.Social.Google.OAuth",
+			name: "Skybrud.Social - Google OAuth",
+			editor: {
+				view: "~/App_Plugins/Skybrud.Social/Google/OAuth/PropertyEditor.html",
+				valueType: "JSON"	
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Configuration",
+						key: "config",
+						view: "~/App_Plugins/Skybrud.Social/Google/OAuth/PreValueEditor.html"
+					}
+				]
+			}
+		},
+		{
+			alias: "Skybrud.Social.Instagram.OAuth",
+			name: "Skybrud.Social - Instagram OAuth",
+			editor: {
+				view: "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PropertyEditor.html",
+				valueType: "JSON"	
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Configuration",
+						key: "config",
+						view: "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PreValueEditor.html"
+					}
+				]
+			}
+		},
+		{
+			alias: "Skybrud.Social.Twitter.OAuth",
+			name: "Skybrud.Social - Twitter OAuth",
+			editor: {
+				view: "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PropertyEditor.html",
+				valueType: "JSON"	
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Configuration",
+						key: "config",
+						view: "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PreValueEditor.html"
+					}
+				]
+			}
+		}
+	],
+    "javascript": [
+        "/App_Plugins/Skybrud.Social/Facebook/OAuth/Controllers.js",
+        "/App_Plugins/Skybrud.Social/Google/OAuth/Controllers.js",
+        "/App_Plugins/Skybrud.Social/Instagram/OAuth/Controllers.js",
+        "/App_Plugins/Skybrud.Social/Twitter/OAuth/Controllers.js"
+    ],
+    "css": [
+        "/App_Plugins/Skybrud.Social/Social.css"
+    ]
+}

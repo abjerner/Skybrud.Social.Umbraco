@@ -37,7 +37,5 @@ angular.module("umbraco").controller("Skybrud.Social.Twitter.OAuth.PreValues.Con
             consumersecret: ''
         };
     }
-    
-    assetsService.loadCss("/App_Plugins/Skybrud.Social/Social.css");
 
 }]);
