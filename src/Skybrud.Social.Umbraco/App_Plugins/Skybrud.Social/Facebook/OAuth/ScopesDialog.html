@@ -15,7 +15,7 @@
                     <tbody>
                         <tr ng-repeat="scope in group.scopes">
                             <td class="col-checkbox">
-                                <input type="checkbox" ng-model="scope.checked" />
+                                <input type="checkbox" ng-model="scope.checked" ng-change="update();" />
                             </td>
                             <td class="col-name">{{scope.Name}}</td>
                             <td class="col-description">
@@ -30,6 +30,6 @@
         <pre style="font-size: 11px; line-height: 13px;">{{dialogOptions.hest | json}}</pre>
     </div>
     <div class="SocialDialogFooter">
-        <a class="btn btn-success" ng-click="confirm();">Confirm</a>
+        <a class="btn btn-success" ng-click="confirm();">Confirm ({{count}})</a>
     </div>
 </div>
