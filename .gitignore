@@ -7,3 +7,5 @@ NuGetBackup
 *.user
 *.suo
 files/
+*.css
+*.map
