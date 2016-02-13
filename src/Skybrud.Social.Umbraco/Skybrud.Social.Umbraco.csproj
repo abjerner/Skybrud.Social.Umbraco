@@ -293,6 +293,7 @@
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\Controllers.js" />
+    <Content Include="App_Plugins\Skybrud.Social\Images\sprite.png" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PropertyEditor.html" />
