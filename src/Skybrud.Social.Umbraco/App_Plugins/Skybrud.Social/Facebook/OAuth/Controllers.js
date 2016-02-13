@@ -9,12 +9,11 @@
     $scope.expiresDays = null;
     
     $scope.callback = function (data) {
-
-        $scope.model.value = data;
-
-        updateUI();
-
-        updateBusinessPagesDropdownUI();
+        $scope.$apply(function () {
+            $scope.model.value = data;
+            updateUI();
+            updateBusinessPagesDropdownUI();
+        });
     };
 
 
@@ -50,9 +49,7 @@
     };
 
     $scope.clear = function () {
-
         $scope.model.value = null;
-
     };
     
     function format(number, decimals) {
