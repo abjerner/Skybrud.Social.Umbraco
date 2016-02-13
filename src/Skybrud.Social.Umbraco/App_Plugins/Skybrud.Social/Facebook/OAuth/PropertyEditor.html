@@ -25,8 +25,23 @@
             </div>
         </div>
         <div style="clear: both;"></div>
+        
+        <div style="float: left; margin-right: 10px;" ng-show="accounts">
+            <h5>Business Page Accounts</h5>
+            <select name="business-page" ng-model="selectedBusinessPage" ng-change="businessPageSelected(selectedBusinessPage)" ng-options="bp.name for bp in accounts track by bp.id">
+                <option value="">choose an account...</option>
+            </select>
+        </div>
+		<div style="clear: both;"></div>
+        <div style="float: left; margin-right: 10px;" ng-show="selectedBusinessPage">
+            <hr />
+            <h5>Business Page Selected</h5>
+            <span><strong>Id:</strong> {{ selectedBusinessPage.id }}</span><br />
+            <span><strong>Name:</strong> {{ selectedBusinessPage.name }}</span>
+            <!--<br /><span><strong>Access Token:</strong> {{ selectedBusinessPage.access_token }}</span>-->
+        </div>
     </div>
-    
+
     <div ng-show="!model.value">
         <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
     </div>

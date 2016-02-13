@@ -15,12 +15,16 @@ namespace Skybrud.Social.Umbraco.Facebook.PropertyEditors.OAuth {
         [JsonProperty("redirecturi")]
         public string RedirectUri { get; set; }
 
+        [JsonProperty("permissions")]
+        public string[] Permissions { get; set; }
+
         [JsonIgnore]
         public bool IsValid {
             get {
                 if (String.IsNullOrEmpty(AppId)) return false;
                 if (String.IsNullOrEmpty(AppSecret)) return false;
                 if (String.IsNullOrEmpty(RedirectUri)) return false;
+                if (Permissions == null || Permissions.Length == 0) return false;
                 return true;
             }
         }
