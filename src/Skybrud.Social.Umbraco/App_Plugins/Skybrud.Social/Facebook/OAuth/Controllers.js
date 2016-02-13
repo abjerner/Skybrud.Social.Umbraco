@@ -1,5 +1,8 @@
 ﻿angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.Controller", ['$scope', 'editorState', function ($scope, editorState) {
 
+    // Expose the Umbraco version
+    $scope.version = window.Umbraco.Sys.ServerVariables.application.version.split('.');
+
     // Define an alias for the editor (eg. used for callbacks)
     var alias = ('skybrudsocial_' + Math.random()).replace('.', '');
 
@@ -82,6 +85,9 @@
 }]);
 
 angular.module("umbraco").controller("Skybrud.Social.Facebook.OAuth.PreValues.Controller", ['$scope', '$http', 'dialogService', function ($scope, $http, dialogService) {
+
+    // Expose the Umbraco version
+    $scope.version = window.Umbraco.Sys.ServerVariables.application.version.split('.');
     
     if (!$scope.model.value) {
         $scope.model.value = {

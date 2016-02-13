@@ -1,4 +1,9 @@
-﻿.skybrudsocialprevalue {
+﻿@info: #2e8aea;
+@success: #53a93f;
+@analytics: #f7991c;
+@youtube: #b00;
+
+.skybrudsocialprevalue {
 
     label { display: block; padding: 0 !important; }
     small + .option { margin-top: 20px; }
@@ -29,19 +34,49 @@
 
 .skybrudsocialprevalue2 {
 
-    .notice { background: #2E8AEA; color: white; padding: 10px; }
+    .notice { background: @info; color: white; padding: 10px; }
     .notice strong { color: white; }
     .notice.icon > div { padding-left: 25px; }
     .notice i.icon { float: left; font-size: 16px; }
         
     .scope {
-        margin: 0 7px 7px 0; padding: 7px; background: #2e8aea;   
-        &.analytics { background: #f7991c; }
-        &.youtube { background: #b00; }
+        margin: 0 7px 7px 0;
+        padding: 7px;
+        background: @info;
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@info, 5%);
+        }
     }
     .scope i { cursor: pointer; }
         
-    .scope.add { background: #72A74E; cursor: pointer; }
+    .scope.youtube {
+        background: @youtube; cursor: pointer;
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@youtube, 5%);
+        }
+    }
+        
+    .scope.analytics {
+        background: @analytics; cursor: pointer;
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@analytics, 5%);
+        }
+    }
+        
+    .scope.add {
+        background: @success; cursor: pointer;
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@success, 5%);
+        }
+    }
 
     .scopes { display: flex; flex-wrap: wrap;}
 
@@ -61,6 +96,17 @@
         font-size: 11px;
         line-height: 13px;
         color: #b3b3b3!important;
+    }
+
+    &.umb74 {
+        .scope {
+            border: 1px solid #ccc;
+            border-radius: 0;
+            border-color: #2f96b4 #2f96b4 #1f6377;
+            border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-﻿<div class="skybrudsocialprevalue2" ng-controller="Skybrud.Social.Facebook.OAuth.PreValues.Controller">
+﻿<div class="skybrudsocialprevalue2" ng-controller="Skybrud.Social.Facebook.OAuth.PreValues.Controller" ng-class="{umb74: version[0] == 7 && version[1] >= 4}">
 
     <small>
         Facebook uses <strong>OAuth 2.0</strong> for authentication and communication. In order for
@@ -14,16 +14,6 @@
                 expire after roughly two months.<br />
             </div>
         </div>
-        <!--        <br />
-                <div class="notice icon">
-                    <i class="icon icon-info"></i>
-                    <div>
-                        When a user is redirected to the Facebook login dialog, the scope
-                        (permissions of the app) is specified. It is currently not possible to specify a scope, but
-                        this will be possible in a future version of this package. The current scope sent to the
-                        login dialog is: <samp>read_stream user_status user_about_me user_photos</samp>.
-                    </div>
-                </div>-->
     </small>
 
     <div class="option">
