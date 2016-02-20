@@ -1,0 +1,10 @@
+{
+  "title": "Skybrud.Social for Umbraco 7",
+  "description": "Package for integration with Skybrud.Social and the Umbraco 7 backoffice.",
+  "company": "Skybrud.dk",
+  "product": "Skybrud.Social.Umbraco",
+  "copyright": "Copyright © 2016",
+  "version": "1.0.3.0",
+  "informationalVersion": "1.0.3",
+  "fileVersion": "1.0.3.0"
+}
