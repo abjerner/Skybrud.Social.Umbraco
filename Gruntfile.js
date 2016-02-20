@@ -1,7 +1,5 @@
 module.exports = function(grunt) {
 
-	var path = require('path');
-
 	// Load the package JSON file
 	var pkg = grunt.file.readJSON('package.json');
 
@@ -17,16 +15,16 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: pkg,
 		clean: {
-			files: [
-				'files/**/*.*'
-			]
+		    files: [
+                'files/**/*.*'
+		    ]
 		},
 		copy: {
 			binary: {
 				files: [
 					{
 						expand: true,
-						cwd: projectRoot + 'bin/Release/',
+						cwd: projectRoot + 'bin/',
 						src: [
 							pkg.name + '.dll',
 							pkg.name + '.xml',
@@ -87,7 +85,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-nuget');
 	grunt.loadNpmTasks('grunt-zip');
 
-	grunt.registerTask('copy', ['clean', 'copy']);
+	//grunt.registerTask('copy', ['clean', 'copy']);
 	grunt.registerTask('dev', ['clean', 'copy', 'zip', 'umbracoPackage', 'nugetpack']);
 
 	grunt.registerTask('default', ['dev']);

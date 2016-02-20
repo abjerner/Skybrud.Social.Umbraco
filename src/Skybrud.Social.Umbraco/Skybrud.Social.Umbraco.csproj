@@ -333,6 +333,9 @@
       <DependentUpon>Table.css</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Skybrud.Social.Umbraco.nuspec" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -359,16 +362,23 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>rmdir "$(SolutionDir)\..\files" /S /Q
+    <PostBuildEvent>"$(SolutionDir)..\build\AssemblyInfo\UpdateAssemblyInfoJson.exe" "$(ProjectPath)" "$(TargetPath)"
 
-xcopy "$(ProjectDir)bin\Skybrud.Social.dll"		"$(SolutionDir)\..\files\bin\" /y /s
-xcopy "$(ProjectDir)bin\Skybrud.Social.Umbraco.dll"		"$(SolutionDir)\..\files\bin\" /y /s
 
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.js" 	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.html"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.css"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.aspx"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
-xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.manifest"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s</PostBuildEvent>
+REM rmdir "$(SolutionDir)\..\files" /S /Q
+
+REM xcopy "$(ProjectDir)bin\Skybrud.Social.dll"		"$(SolutionDir)\..\files\bin\" /y /s
+REM xcopy "$(ProjectDir)bin\Skybrud.Social.Umbraco.dll"		"$(SolutionDir)\..\files\bin\" /y /s
+
+REM xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.js" 	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+REM xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.html"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+REM xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.css"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+REM xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.aspx"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s
+REM xcopy "$(ProjectDir)App_Plugins\Skybrud.Social\*.manifest"	"$(SolutionDir)\..\files\App_Plugins\Skybrud.Social\" /y /s</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
