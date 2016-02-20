@@ -1,7 +1,6 @@
-﻿//using Skybrud.Social.Facebook.Scope;
-
-using Newtonsoft.Json;
-using Skybrud.Social.Facebook.Scope;
+﻿using Newtonsoft.Json;
+using Skybrud.Social.Facebook;
+using Skybrud.Social.Umbraco.Facebook.Scope;
 using Skybrud.Social.Umbraco.WebApi;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
@@ -24,7 +23,7 @@ namespace Skybrud.Social.Umbraco.Controllers.Api {
 
 }
 
-namespace Skybrud.Social.Facebook.Scope {
+namespace Skybrud.Social.Umbraco.Facebook.Scope {
 
     /// <summary>
     /// Static class containing references to groups of scopes of the Facebook API.
