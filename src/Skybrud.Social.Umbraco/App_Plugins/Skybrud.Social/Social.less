@@ -38,11 +38,38 @@
     .notice strong { color: white; }
     .notice.icon > div { padding-left: 25px; }
     .notice i.icon { float: left; font-size: 16px; }
+
+    &.SkybrudSocialInstagram {
+        .scope {
+            background: white;
+            border: 1px solid #b3b3b3;
+            color: #b3b3b3;
+            padding: 6px;
+            cursor: pointer;
+            &:hover,
+            &:focus,
+            &:active {
+                background: #F8F8F8;
+            }
+            &.selected {
+                background: @info;
+                border: 1px solid @info;
+                color: white;
+                &:hover,
+                &:focus,
+                &:active {
+                    background: darken(@info, 5%);
+                    border: 1px solid darken(@info, 5%);
+                }
+            }
+        }
+    }
         
     .scope {
         margin: 0 7px 7px 0;
         padding: 7px;
         background: @info;
+        text-shadow: none;
         &:hover,
         &:focus,
         &:active {

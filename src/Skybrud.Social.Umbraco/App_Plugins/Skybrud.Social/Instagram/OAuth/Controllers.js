@@ -34,15 +34,43 @@
 }]);
 
 angular.module("umbraco").controller("Skybrud.Social.Instagram.OAuth.PreValues.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
-    
+
     if (!$scope.model.value) {
         $scope.model.value = {
             clientid: '',
             clientsecret: '',
-            redirecturi: ''
+            redirecturi: '',
+            scope: ''
         };
     }
 
+    $scope.scopes = [
+        { alias: 'public_content', name: 'Public Content' },
+        { alias: 'follower_list', name: 'Follower list' },
+        { alias: 'comments', name: 'Comments' },
+        { alias: 'relationships', name: 'Relationships' },
+        { alias: 'likes', name: 'Likes' }
+    ];
+
+    $scope.init = function () {
+        var temp = $scope.model.value.scope ? $scope.model.value.scope.split(',') : [];
+        angular.forEach($scope.scopes, function (s) {
+            s.selected = temp.indexOf(s.alias) >= 0;
+        });
+    };
+
+    $scope.updateScope = function () {
+        var temp = [];
+        angular.forEach($scope.scopes, function (s) {
+            if (s.selected) {
+                temp.push(s.alias);
+            }
+        });
+        $scope.model.value.scope = temp.join(',');
+    };
+
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/InstagramOAuth.aspx';
+
+    $scope.init();
 
 }]);
