@@ -301,7 +301,7 @@
       <DependentUpon>Social.less</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Skybrud.Social\Social.min.css">
-      <DependentUpon>Social.less</DependentUpon>
+      <DependentUpon>Social.css</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Skybrud.Social\Table.css">
       <DependentUpon>Table.less</DependentUpon>
@@ -318,20 +318,10 @@
     <Content Include="App_Plugins\Skybrud.Social\Social.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Skybrud.Social\Social.css.map">
-      <DependentUpon>Social.css</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Plugins\Skybrud.Social\package.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Skybrud.Social\Table.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Plugins\Skybrud.Social\Table.css.map">
-      <DependentUpon>Table.css</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Skybrud.Social.Umbraco.nuspec" />
