@@ -79,7 +79,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 Content.Text = "Hold on now! The options of the underlying prevalue editor isn't valid.";
                 return;
             }
-
+            
             // Configure the OAuth client based on the options of the prevalue options
             InstagramOAuthClient client = new InstagramOAuthClient {
                 ClientId = options.ClientId,
@@ -110,6 +110,11 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
 
                 // Construct the authorization URL
                 string url = client.GetAuthorizationUrl(state);
+
+                // Append the scope to the authorization URL
+                if (!String.IsNullOrWhiteSpace(options.ScopeStr)) {
+                    url += "&scope=" + options.ScopeStr.Replace(",", "+");
+                }
                 
                 // Redirect the user
                 Response.Redirect(url);
