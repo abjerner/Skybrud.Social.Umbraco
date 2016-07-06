@@ -7,9 +7,9 @@
     var state = editorState.current;
 
     $scope.callback = function (data) {
-
-        $scope.model.value = data;
-
+        $scope.$apply(function () {
+            $scope.model.value = data;
+        });
     };
 
     $scope.authorize = function () {
