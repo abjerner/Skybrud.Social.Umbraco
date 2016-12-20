@@ -1,0 +1,35 @@
+﻿<div ng-controller="socialGoogleScopesDialogCtrl">
+    <div class="SocialDialogHeader">
+        <div class="SocialDialogClose" ng-click="close();"></div>
+        <div class="SocialDialogTitle">Select scopes</div>
+    </div>
+    <div class="SocialDialogContent">
+        <div ng-repeat="group in scopes">
+            <div class="table scopes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3">{{group.name}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="scope in group.scopes">
+                            <td class="col-checkbox">
+                                <input type="checkbox" ng-model="scope.checked" ng-change="update();" />
+                            </td>
+                            <td class="col-name">{{scope.Name}}</td>
+                            <td class="col-description">
+                                <span ng-show="scope.Description">{{scope.Description}}</span>
+                                <em ng-show="!scope.Description">No description.</em>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <pre style="font-size: 11px; line-height: 13px;">{{dialogOptions.hest | json}}</pre>
+    </div>
+    <div class="SocialDialogFooter">
+        <a class="btn btn-success" ng-click="confirm();">Confirm ({{count}})</a>
+    </div>
+</div>

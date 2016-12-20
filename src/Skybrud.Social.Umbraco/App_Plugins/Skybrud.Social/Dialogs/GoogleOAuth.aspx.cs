@@ -122,11 +122,13 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
                 };
 
                 // Declare the scope
-                GoogleScopeCollection scope = new[] {
+                GoogleScopeCollection defaultScope = new[] {
                     GoogleScope.OpenId,
                     GoogleScope.Email,
                     GoogleScope.Profile
                 };
+
+                string scope = options.Scope != null ? string.Join(" ", options.Scope) : defaultScope.ToString();
 
                 // Construct the authorization URL
                 string url = client.GetAuthorizationUrl(state, scope, GoogleAccessType.Offline, GoogleApprovalPrompt.Force);

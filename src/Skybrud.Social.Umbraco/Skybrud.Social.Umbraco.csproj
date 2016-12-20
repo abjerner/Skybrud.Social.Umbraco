@@ -262,6 +262,7 @@
       <DependentUpon>TwitterOAuth.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\Dialogs.js" />
+    <Compile Include="Controllers\Api\GoogleController.cs" />
     <Compile Include="Controllers\Api\FacebookController.cs" />
     <Compile Include="Facebook\PropertyEditors\OAuth\FacebookOAuthPropertyValueConverter.cs" />
     <Compile Include="Facebook\PropertyEditors\OAuth\FacebookOAuthData.cs" />
@@ -290,9 +291,11 @@
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Facebook\OAuth\ScopesDialog.html" />
+    <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\Dialogs.js" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\PropertyEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\Controllers.js" />
+    <Content Include="App_Plugins\Skybrud.Social\Google\OAuth\ScopesDialog.html" />
     <Content Include="App_Plugins\Skybrud.Social\Images\sprite.png" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PreValueEditor.html" />

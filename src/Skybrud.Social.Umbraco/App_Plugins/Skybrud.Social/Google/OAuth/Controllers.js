@@ -31,15 +31,39 @@
 
 }]);
 
-angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Controller", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Controller", ['$scope', '$http', 'dialogService', function ($scope, $http, dialogService) {
 
     if (!$scope.model.value) {
         $scope.model.value = {
             appid: '',
             appsecret: '',
-            redirecturi: ''
+            redirecturi: '',
+            scope: ['email', 'openid', 'profile']
         };
     }
+
+    if (!$scope.model.value.scope) $scope.model.value.scope = [];
+
+    $scope.addScope = function () {
+
+        var d = dialogService.open({
+            modalClass: 'SocialDialog',
+            template: '/App_Plugins/Skybrud.Social/Google/OAuth/ScopesDialog.html',
+            show: true,
+            callback: function (scopes) {
+                $scope.model.value.scope = scopes;
+            },
+            selection: $scope.model.value.scope
+        });
+
+        d.element[0].style.width = '1000px';
+        d.element[0].style.marginLeft = '-500px';
+
+    };
+
+    $scope.removeScope = function (index) {
+        $scope.model.value.scope.splice(index, 1);
+    };
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/GoogleOAuth.aspx';
 
