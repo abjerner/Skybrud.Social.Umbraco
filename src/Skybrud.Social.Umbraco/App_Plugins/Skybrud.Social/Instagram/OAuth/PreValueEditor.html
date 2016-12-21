@@ -28,32 +28,32 @@
     </small>
 
     <div class="option">
-        <label for="clientid">
+        <label for="instagramClientId">
             <span>Client ID</span>
             <small>The ID of the Instagram app.</small>
         </label>
         <div>
-            <input type="text" ng-model="model.value.clientid" />
+            <input id="instagramClientId" type="text" ng-model="model.value.clientid" />
         </div>
     </div>
 
     <div class="option">
-        <label for="clientsecret">
+        <label for="instagramClientSecret">
             <span>Client Secret</span>
             <small>The secret of the Instagram app.</small>
         </label>
         <div>
-            <input id="clientsecret" type="text" ng-model="model.value.clientsecret" />
+            <input id="instagramClientSecret" type="text" ng-model="model.value.clientsecret" />
         </div>
     </div>
 
     <div class="option">
-        <label for="redirecturi">
+        <label for="instagramClientRedirectUri">
             <span>Redirect URI</span>
             <small>The redirect URI of the Instagram app.</small>
         </label>
         <div>
-            <input id="redirecturi" type="text" ng-model="model.value.redirecturi" />
+            <input id="instagramClientRedirectUri" type="text" ng-model="model.value.redirecturi" />
             <div ng-show="model.value.redirecturi == ''" class="suggestion">
                 Will most likely be: {{suggestedRedirectUri}}
             </div>
