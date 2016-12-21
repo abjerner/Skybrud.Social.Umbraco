@@ -37,12 +37,24 @@ angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Cont
         $scope.model.value = {
             appid: '',
             appsecret: '',
-            redirecturi: '',
-            scope: ['email', 'openid', 'profile']
+            redirecturi: ''
         };
     }
 
-    if (!$scope.model.value.scope) $scope.model.value.scope = [];
+    // Make sure we have an array for the selected scopes
+    if (!Array.isArray($scope.model.value.scope)) $scope.model.value.scope = ['email', 'profile'];
+
+    // Shadow array for keeping track of the selected scopes
+    $scope.scopes = [];
+
+    // Updates the model based on the shadow array
+    function updateModel() {
+        var temp = [];
+        angular.forEach($scope.scopes, function (scope) {
+            temp.push(scope.alias);
+        });
+        $scope.model.value.scope = temp;
+    }
 
     $scope.addScope = function () {
 
@@ -51,7 +63,8 @@ angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Cont
             template: '/App_Plugins/Skybrud.Social/Google/OAuth/ScopesDialog.html',
             show: true,
             callback: function (scopes) {
-                $scope.model.value.scope = scopes;
+                $scope.scopes = scopes;
+                updateModel();
             },
             selection: $scope.model.value.scope
         });
@@ -62,9 +75,21 @@ angular.module("umbraco").controller("Skybrud.Social.Google.OAuth.PreValues.Cont
     };
 
     $scope.removeScope = function (index) {
-        $scope.model.value.scope.splice(index, 1);
+        $scope.scopes.splice(index, 1);
+        updateModel();
     };
 
     $scope.suggestedRedirectUri = window.location.origin + '/App_Plugins/Skybrud.Social/Dialogs/GoogleOAuth.aspx';
+
+    // Fetch all scopes from the API so we can look up the selected scopes
+    $http.get('/umbraco/SkybrudSocial/Google/GetScopes').success(function (r) {
+        angular.forEach(r, function (group) {
+            angular.forEach(group.scopes, function (scope) {
+                if ($scope.model.value.scope.indexOf(scope.alias) !== -1) {
+                    $scope.scopes.push(scope);
+                }
+            });
+        });
+    });
 
 }]);

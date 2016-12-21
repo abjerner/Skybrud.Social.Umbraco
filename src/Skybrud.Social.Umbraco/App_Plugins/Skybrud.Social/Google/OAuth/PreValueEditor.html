@@ -57,8 +57,8 @@
             <small>The scope of the app (the permissions your app should be granted).</small>
         </label>
         <div class="scopes">
-            <span ng-repeat="scope in model.value.scope" class="label scope">
-                {{scope}}
+            <span ng-repeat="scope in scopes" class="label scope {{scope.type}}" title="{{scope.description}}">
+                {{scope.prefix + scope.name}}
                 <i class="icon icon-delete" ng-click="removeScope($index)"></i>
             </span>
             <span ng-click="addScope();" class="label scope add">

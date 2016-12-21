@@ -4,22 +4,22 @@
 
     $scope.count = 0;
 
-    $scope.update = function() {
+    $scope.update = function () {
         var count = 0;
-        angular.forEach($scope.scopes, function(group) {
-            angular.forEach(group.scopes, function(scope) {
+        angular.forEach($scope.scopes, function (group) {
+            angular.forEach(group.scopes, function (scope) {
                 if (scope.checked) count++;
             });
         });
         $scope.count = count;
     };
 
-    $scope.confirm = function() {
+    $scope.confirm = function () {
         var temp = [];
-        angular.forEach($scope.scopes, function(group) {
-            angular.forEach(group.scopes, function(scope) {
+        angular.forEach($scope.scopes, function (group) {
+            angular.forEach(group.scopes, function (scope) {
                 if (scope.checked) {
-                    temp.push(scope.Name);
+                    temp.push(scope);
                 }
             });
         });
@@ -31,10 +31,16 @@
         var count = 0;
         angular.forEach($scope.scopes, function (group) {
             angular.forEach(group.scopes, function (scope) {
-                scope.checked = selection.indexOf(scope.Name) >= 0;
-                if (scope.checked) {
-                    count++;
-                }
+
+                // Define a unique ID for each scope (used for the label in the UI)
+                scope.id = ('skybrudsocial_scope_' + Math.random()).replace('.', '');
+
+                // Is the scope selected?
+                scope.checked = selection.indexOf(scope.alias) >= 0;
+
+                // Increment the counter if selected
+                if (scope.checked) count++;
+
             });
         });
         $scope.count = count;
