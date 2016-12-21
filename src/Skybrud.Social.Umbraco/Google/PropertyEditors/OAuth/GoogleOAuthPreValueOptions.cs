@@ -6,11 +6,17 @@ namespace Skybrud.Social.Umbraco.Google.PropertyEditors.OAuth {
 
     public class GoogleOAuthPreValueOptions {
 
+        [JsonProperty("clientid")]
         public string ClientId { get; set; }
 
+        [JsonProperty("clientsecret")]
         public string ClientSecret { get; set; }
 
+        [JsonProperty("redirecturi")]
         public string RedirectUri { get; set; }
+
+        [JsonProperty("scope")]
+        public string[] Scope { get; set; }
 
         [JsonIgnore]
         public bool IsValid {

@@ -1,4 +1,4 @@
-﻿<div class="skybrudsocialprevalue" ng-controller="Skybrud.Social.Google.OAuth.PreValues.Controller">
+﻿<div class="skybrudsocialprevalue2" ng-controller="Skybrud.Social.Google.OAuth.PreValues.Controller">
 
     <small>
         Google uses <strong>OAuth 2.0</strong> for authentication and communication. In order for
@@ -6,48 +6,64 @@
         of your Google app. You can create a new app at the following URL:
         <strong>https://console.developers.google.com/project</strong><br />
         <br />
-        <strong>Notice:</strong> When a user authenticates with the Google API, a refresh token is
-        saved along with information about the user. The refresh token can be used to obtain an
-        access token, which again can be used to make calls to the Google API. Refresh tokens will
-        not expire unless the user deauthorizes the app. Access tokens will only have a lifetime of
-        about an hour.<br />
-        <br />
-        <strong>Notice:</strong> When a user is redirected to the Google login dialog, the scope
-        (permissions of the app) is specified. It is currently not possible to specify a scope, but
-        this will be possible in a future version of this package. The current scope sent to the
-        login dialog is: <samp>openid email profile</samp>.
+        <div class="notice icon">
+            <i class="icon icon-info"></i>
+            <div>
+                When a user authenticates with the Google API, a refresh token is
+                saved along with information about the user. The refresh token can be used to obtain an
+                access token, which again can be used to make calls to the Google API. Refresh tokens will
+                not expire unless the user deauthorizes the app. Access tokens will only have a lifetime of
+                about an hour.<br />
+            </div>
+        </div>
     </small>
 
     <div class="option">
-        <label>
-            <div>
-                <span>Client ID</span>
-                <small>The ID of the Google app.</small>
-            </div>
-            <input type="text" ng-model="model.value.clientid" />
+        <label for="clientid">
+            <span>Client ID</span>
+            <small>The ID of the Google app.</small>
         </label>
+        <div>
+            <input id="clientid" type="text" ng-model="model.value.clientid" />
+        </div>
     </div>
     
     <div class="option">
-        <label>
-            <div>
-                <span>Client Secret</span>
-                <small>The secret of the Google app.</small>
-            </div>
-            <input type="text" ng-model="model.value.clientsecret" />
+        <label for="clientsecret">
+            <span>Client Secret</span>
+            <small>The secret of the Google app.</small>
         </label>
+        <div>
+            <input id="clientsecret" type="text" ng-model="model.value.clientsecret" />
+        </div>
     </div>
     
     <div class="option">
-        <label>
-            <div>
-                <span>Redirect URI</span>
-                <small>The redirect URI of the Google app.</small>
-            </div>
-            <input type="text" ng-model="model.value.redirecturi" />
+        <label for="redirecturi">
+            <span>Redirect URI</span>
+            <small>The redirect URI of the Google app.</small>
         </label>
-        <div ng-show="model.value.redirecturi == ''" class="suggestion">
-            Will most likely be: {{suggestedRedirectUri}}
+        <div>
+            <input id="redirecturi" type="text" ng-model="model.value.redirecturi" />
+            <div ng-show="model.value.redirecturi == ''" class="suggestion">
+                Will most likely be: {{suggestedRedirectUri}}
+            </div>
+        </div>
+    </div>
+
+    <div class="option">
+        <label>
+            <span>Scope</span>
+            <small>The scope of the app (the permissions your app should be granted).</small>
+        </label>
+        <div class="scopes">
+            <span ng-repeat="scope in model.value.scope" class="label scope">
+                {{scope}}
+                <i class="icon icon-delete" ng-click="removeScope($index)"></i>
+            </span>
+            <span ng-click="addScope();" class="label scope add">
+                <i class="icon icon-add"></i>
+            </span>
         </div>
     </div>
 

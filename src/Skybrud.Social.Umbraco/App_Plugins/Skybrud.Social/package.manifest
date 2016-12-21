@@ -73,6 +73,7 @@
         "/App_Plugins/Skybrud.Social/Facebook/OAuth/Controllers.js",
         "/App_Plugins/Skybrud.Social/Facebook/OAuth/Dialogs.js",
         "/App_Plugins/Skybrud.Social/Google/OAuth/Controllers.js",
+        "/App_Plugins/Skybrud.Social/Google/OAuth/Dialogs.js",
         "/App_Plugins/Skybrud.Social/Instagram/OAuth/Controllers.js",
         "/App_Plugins/Skybrud.Social/Twitter/OAuth/Controllers.js"
     ],
