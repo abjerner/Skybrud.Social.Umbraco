@@ -36,7 +36,7 @@ namespace Skybrud.Social.Umbraco.Google.Scope {
             new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics.readonly", Type = "analytics", Prefix = "Analytics: ", Name = "Read-only access", Description = "Read-only access to the Analytics API." },
             new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics", Type = "analytics", Prefix = "Analytics: ", Name = "Write access", Description = "Write access to the Analytics API." },
             new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics.edit", Type = "analytics", Prefix = "Analytics: ", Name = "Edit", Description = "Edit Google Analytics management entities." },
-            new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics.manage.users", Type = "analytics", Prefix = "Analytics: ", Name = "Manage users", Description = "	View and manage user permissions for Analytics accounts." },
+            new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics.manage.users", Type = "analytics", Prefix = "Analytics: ", Name = "Manage users", Description = "View and manage user permissions for Analytics accounts." },
             new GoogleScopeItem { Alias = "https://www.googleapis.com/auth/analytics.manage.users.readonly", Type = "analytics", Prefix = "Analytics: ", Name = "Manage users (readonly)", Description = "View Google Analytics user permissions." }
         });
 
