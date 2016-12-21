@@ -17,10 +17,11 @@
                             <td class="col-checkbox">
                                 <input type="checkbox" ng-model="scope.checked" ng-change="update();" />
                             </td>
-                            <td class="col-name">{{scope.Name}}</td>
-                            <td class="col-description">
-                                <span ng-show="scope.Description">{{scope.Description}}</span>
-                                <em ng-show="!scope.Description">No description.</em>
+                            <td class="col-name">
+                                <label for="fb_scope_{{scope.Name}}">
+                                    <strong>{{scope.Name}}</strong>
+                                    <small ng-show="scope.Description">{{scope.Description}}</small>
+                                </label>
                             </td>
                         </tr>
                     </tbody>
