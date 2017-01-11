@@ -1,40 +1,20 @@
-﻿<div class="skybrudsocialprevalue2" ng-controller="Skybrud.Social.Twitter.OAuth.PreValues.Controller">
+﻿<div ng-controller="Skybrud.Social.Twitter.OAuth.Controller">
 
-    <small>
-        The Twitter API uses <strong>OAuth 1.0a</strong> for authentication and communication. In
-        order for users to authenticate with the Twitter API, you must specify a comsumer key
-        (Twitter calls it an API key) and a consumer secret (Twitter calls it an API secret) of
-        your Twitter app. You can create a new app at the following URL:
-        <strong>https://apps.twitter.com/</strong><br />
-        <br />
-        <div class="notice icon">
-            <i class="icon icon-info"></i>
-            <div>
-                You may have to specify a callback URL for your Twitter app to
-                enable OAuth authentication (the login dialog). The URL is not used by this package, so you
-                can just specify a somewhat random URL.
+    <div ng-show="model.value">
+        <div style="float: left; margin-right: 10px;">
+            <img src="{{model.value.avatar}}" width="50" height="50" alt="" />
+        </div>
+        <div style="float: left; margin-right: 10px;">
+            <div style="margin-bottom: 5px;">
+                <strong>{{model.value.name}}</strong> <span style="font-size: 12px;">(ID: {{model.value.id}})</span>
             </div>
+            <button ng-click="clear()" prevent-default="" style="float: left;">Clear</button>
         </div>
-    </small>
-
-    <div class="option">
-        <label for="twitterConsumerKey">
-            <span>Consumer Key</span>
-            <small>The consumer key of the Twitter app.</small>
-        </label>
-        <div>
-            <input id="twitterConsumerKey" type="text" ng-model="model.value.consumerkey" />
-        </div>
+        <div style="clear: both;"></div>
     </div>
 
-    <div class="option">
-        <label for="twitterConsumerSecret">
-            <span>Consumer Secret</span>
-            <small>The consumer secret of the Twitter app.</small>
-        </label>
-        <div>
-            <input id="twitterConsumerSecret" type="text" ng-model="model.value.consumersecret" />
-        </div>
+    <div ng-show="!model.value">
+        <button ng-click="authorize()" prevent-default="" class="btn">Authorize</button>
     </div>
 
 </div>
