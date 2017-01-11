@@ -1,74 +1,74 @@
-﻿﻿{
-	propertyEditors: [
-		{
-			alias: "Skybrud.Social.Facebook.OAuth",
-			name: "Skybrud.Social - Facebook OAuth",
-			editor: {
-				view: "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PropertyEditor.html?v=1.0.6",
-				valueType: "JSON"	
-			},
-			prevalues: {
-				fields: [
-					{
-						label: "Configuration",
-						key: "config",
-						view: "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PreValueEditor.html?v=1.0.6"
-					}
-				]
-			}
-		},
-		{
-			alias: "Skybrud.Social.Google.OAuth",
-			name: "Skybrud.Social - Google OAuth",
-			editor: {
-				view: "~/App_Plugins/Skybrud.Social/Google/OAuth/PropertyEditor.html?v=1.0.6",
-				valueType: "JSON"	
-			},
-			prevalues: {
-				fields: [
-					{
-						label: "Configuration",
-						key: "config",
-						view: "~/App_Plugins/Skybrud.Social/Google/OAuth/PreValueEditor.html?v=1.0.6"
-					}
-				]
-			}
-		},
-		{
-			alias: "Skybrud.Social.Instagram.OAuth",
-			name: "Skybrud.Social - Instagram OAuth",
-			editor: {
-				view: "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PropertyEditor.html?v=1.0.6",
-				valueType: "JSON"	
-			},
-			prevalues: {
-				fields: [
-					{
-						label: "Configuration",
-						key: "config",
-						view: "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PreValueEditor.html?v=1.0.6"
-					}
-				]
-			}
-		},
-		{
-			alias: "Skybrud.Social.Twitter.OAuth",
-			name: "Skybrud.Social - Twitter OAuth",
-			editor: {
-				view: "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PropertyEditor.html?v=1.0.6",
-				valueType: "JSON"	
-			},
-			prevalues: {
-				fields: [
-					{
-						label: "Configuration",
-						key: "config",
-						view: "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PreValueEditor.html?v=1.0.6"
-					}
-				]
-			}
-		}
-	],
+﻿{
+    "propertyEditors": [
+        {
+            "alias": "Skybrud.Social.Facebook.OAuth",
+            "name": "Skybrud.Social - Facebook OAuth",
+            "editor": {
+                "view": "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PropertyEditor.html?v=1.0.6",
+                "valueType": "JSON"
+            },
+            "prevalues": {
+                "fields": [
+                    {
+                        "label": "Configuration",
+                        "key": "config",
+                        "view": "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PreValueEditor.html?v=1.0.6"
+                    }
+                ]
+            }
+        },
+        {
+            "alias": "Skybrud.Social.Google.OAuth",
+            "name": "Skybrud.Social - Google OAuth",
+            "editor": {
+                "view": "~/App_Plugins/Skybrud.Social/Google/OAuth/PropertyEditor.html?v=1.0.6",
+                "valueType": "JSON"
+            },
+            "prevalues": {
+                "fields": [
+                    {
+                        "label": "Configuration",
+                        "key": "config",
+                        "view": "~/App_Plugins/Skybrud.Social/Google/OAuth/PreValueEditor.html?v=1.0.6"
+                    }
+                ]
+            }
+        },
+        {
+            "alias": "Skybrud.Social.Instagram.OAuth",
+            "name": "Skybrud.Social - Instagram OAuth",
+            "editor": {
+                "view": "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PropertyEditor.html?v=1.0.6",
+                "valueType": "JSON"
+            },
+            "prevalues": {
+                "fields": [
+                    {
+                        "label": "Configuration",
+                        "key": "config",
+                        "view": "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PreValueEditor.html?v=1.0.6"
+                    }
+                ]
+            }
+        },
+        {
+            "alias": "Skybrud.Social.Twitter.OAuth",
+            "name": "Skybrud.Social - Twitter OAuth",
+            "editor": {
+                "view": "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PropertyEditor.html?v=1.0.6",
+                "valueType": "JSON"
+            },
+            "prevalues": {
+                "fields": [
+                    {
+                        "label": "Configuration",
+                        "key": "config",
+                        "view": "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PreValueEditor.html?v=1.0.6"
+                    }
+                ]
+            }
+        }
+    ],
     "javascript": [
         "/App_Plugins/Skybrud.Social/Facebook/OAuth/Controllers.js",
         "/App_Plugins/Skybrud.Social/Facebook/OAuth/Dialogs.js",
