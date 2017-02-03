@@ -13,7 +13,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="scope in group.scopes">
+                        <tr ng-repeat="scope in group.scopes" ng-class="{'selected': scope.checked}">
                             <td class="col-checkbox">
                                 <input type="checkbox" id="g_scope_{{scope.id}}" ng-model="scope.checked" ng-change="update();" />
                             </td>
