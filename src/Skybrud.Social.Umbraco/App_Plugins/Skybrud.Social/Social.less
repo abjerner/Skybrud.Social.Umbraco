@@ -177,8 +177,13 @@
             margin: 0;
         }
         table {
-            tbody > tr.selected {
-                background-color: #e7f2fd;        
+            tbody > tr {
+               label {
+                   display: block;
+               }
+               &.selected {
+                    background-color: #e7f2fd;        
+                }
             }
         }   
     }
