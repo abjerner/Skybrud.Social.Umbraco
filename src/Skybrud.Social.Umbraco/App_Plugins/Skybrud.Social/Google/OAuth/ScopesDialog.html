@@ -15,10 +15,10 @@
                     <tbody>
                         <tr ng-repeat="scope in group.scopes">
                             <td class="col-checkbox">
-                                <input type="checkbox" id="{{scope.id}}" ng-model="scope.checked" ng-change="update();" />
+                                <input type="checkbox" id="g_scope_{{scope.id}}" ng-model="scope.checked" ng-change="update();" />
                             </td>
                             <td class="col-name">
-                                <label for="{{scope.id}}">
+                                <label for="g_scope_{{scope.id}}">
                                     <strong>{{scope.name}}</strong>
                                     <small ng-show="scope.description">{{scope.description}}</small>
                                 </label>
