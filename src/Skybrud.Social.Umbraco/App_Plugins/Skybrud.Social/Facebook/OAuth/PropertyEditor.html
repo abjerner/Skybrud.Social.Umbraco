@@ -2,7 +2,10 @@
 
     <div ng-show="model.value">
         <div style="float: left; margin-right: 10px;">
-            <img src="https://graph.facebook.com/{{model.value.id}}/picture?type=small" width="50" height="50" alt="" />
+            <img src="https://graph.facebook.com/{{model.value.id}}/picture?width=50&height=50"
+                 srcset="https://graph.facebook.com/{{model.value.id}}/picture?width=100&height=100 2x,
+                         https://graph.facebook.com/{{model.value.id}}/picture?width=150&height=150 3x"
+                 width="50" height="50" alt="" />
         </div>
         <div style="float: left; margin-right: 10px;">
             <div style="margin-bottom: 5px;">
