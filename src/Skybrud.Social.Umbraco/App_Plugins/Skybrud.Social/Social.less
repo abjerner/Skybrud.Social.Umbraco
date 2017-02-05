@@ -166,16 +166,16 @@
 .SocialDialog {
 
     .table.scopes {
+        
         .col-checkbox {
             width: 25px;
             text-align: center;
+            vertical-align: middle;
         }
         .col-name {
             width: 100%;
         }
-        label, input[type=checkbox] {
-            margin: 0;
-        }
+        
         table {
             tbody > tr {
                label {
@@ -185,7 +185,21 @@
                     background-color: #e7f2fd;        
                 }
             }
-        }   
+        }
+        
+        td {
+            padding: 0;
+        }
+
+        input[type=checkbox] {
+            margin: 8px;
+        }
+
+        label {
+            margin: 0;
+            padding: 8px;
+        }
+         
     }
 
     > div {
