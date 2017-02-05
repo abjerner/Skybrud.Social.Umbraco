@@ -14,13 +14,13 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="scope in group.scopes" ng-class="{'selected': scope.checked}">
-                            <td class="col-checkbox">
-                                <input type="checkbox" id="fb_scope_{{scope.Name}}" ng-model="scope.checked" ng-change="update();" />
-                            </td>
-                            <td class="col-name">
-                                <label for="fb_scope_{{scope.Name}}">
-                                    <strong>{{scope.Name}}</strong>
-                                    <small ng-show="scope.Description">{{scope.Description}}</small>
+                            <td>
+                                <label>
+                                    <input type="checkbox" ng-model="scope.checked" ng-change="update();" />
+                                    <div>
+                                        <strong>{{scope.Name}}</strong>
+                                        <small ng-show="scope.Description">{{scope.Description}}</small>
+                                    </div>
                                 </label>
                             </td>
                         </tr>
