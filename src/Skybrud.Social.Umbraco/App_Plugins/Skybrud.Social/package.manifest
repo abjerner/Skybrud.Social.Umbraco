@@ -78,6 +78,6 @@
         "/App_Plugins/Skybrud.Social/Twitter/OAuth/Controllers.js"
     ],
     "css": [
-        "/App_Plugins/Skybrud.Social/Social.css"
+        "/App_Plugins/Skybrud.Social/Styles/Social.css"
     ]
 }
