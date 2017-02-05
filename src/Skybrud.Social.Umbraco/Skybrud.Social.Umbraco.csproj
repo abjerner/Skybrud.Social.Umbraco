@@ -300,17 +300,11 @@
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\Controllers.js" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Instagram\OAuth\PropertyEditor.html" />
-    <Content Include="App_Plugins\Skybrud.Social\Social.css">
+    <Content Include="App_Plugins\Skybrud.Social\Styles\Social.css">
       <DependentUpon>Social.less</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Skybrud.Social\Social.min.css">
+    <Content Include="App_Plugins\Skybrud.Social\Styles\Social.min.css">
       <DependentUpon>Social.css</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Skybrud.Social\Table.css">
-      <DependentUpon>Table.less</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Skybrud.Social\Table.min.css">
-      <DependentUpon>Table.css</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Skybrud.Social\Twitter\OAuth\PreValueEditor.html" />
     <Content Include="App_Plugins\Skybrud.Social\Twitter\OAuth\PropertyEditor.html" />
@@ -318,13 +312,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Skybrud.Social\Social.less" />
+    <Content Include="App_Plugins\Skybrud.Social\Styles\Social.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Skybrud.Social\package.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Skybrud.Social\Table.less" />
+    <Content Include="App_Plugins\Skybrud.Social\Styles\_table.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Skybrud.Social.Umbraco.nuspec" />
