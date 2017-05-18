@@ -17,9 +17,24 @@ namespace Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth {
 
         /// <summary>
         /// Gets the ID of the authenticated user.
+        /// String need to be used due to javascript limitations on large numbers
         /// </summary>
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public string IdStr { get; set; }
+
+        /// <summary>
+        /// Gets the ID of the authenticated user.
+        /// </summary>
+        [JsonIgnore]
+        public long Id
+        {
+            get
+            {
+                long defaultValue = 0;
+                long.TryParse(IdStr, out defaultValue);
+                return defaultValue;
+            }
+        }
 
         /// <summary>
         /// Gets the screen name of the authenticated user.
