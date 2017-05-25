@@ -128,7 +128,7 @@ namespace Skybrud.Social.Umbraco.App_Plugins.Skybrud.Social.Dialogs {
 
                     // Set the callback data
                     TwitterOAuthData data = new TwitterOAuthData {
-                        Id = user.Id,
+                        IdStr = user.IdStr,
                         ScreenName = user.ScreenName,
                         Name = String.IsNullOrEmpty(user.Name) ? "" : user.Name,
                         Avatar = user.ProfileImageUrlHttps,
