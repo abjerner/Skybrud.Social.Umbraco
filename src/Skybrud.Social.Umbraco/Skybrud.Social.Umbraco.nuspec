@@ -13,7 +13,7 @@
     <description>$description$</description>
     <tags>Umbraco, Facebook, Twitter, Instagram, Google, Analytics, Skybrud, Social, OAuth</tags>
     <dependencies>
-      <dependency id="Skybrud.Social" version="[0.9.4.8,1.0.0)" />
+      <dependency id="Skybrud.Social" version="[0.9.6.0,1.0.0)" />
     </dependencies>
   </metadata>
 </package>
