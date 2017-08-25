@@ -10,3 +10,4 @@ files/
 *.css
 *.map
 node_modules/
+src/.vs/
