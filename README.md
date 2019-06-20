@@ -1,31 +1,27 @@
 Skybrud.Social for Umbraco 7
 ============================
-[Skybrud.Social](https://github.com/abjerner/Skybrud.Social) is a framework in .NET that integrates with a number of social services. This repository is for a package for Umbraco 7 that will use Skybrud.Social for bringing stuff like OAuth authentication to Umbraco.
+[Skybrud.Social](https://github.com/abjerner/Skybrud.Social) is a framework in .NET that integrates with a number of social services. This repository is for a package for Umbraco 8 that will use Skybrud.Social for bringing stuff like OAuth authentication to Umbraco.
 
-If you're using Umbraco 6, have a look at [this package](https://github.com/abjerner/Skybrud.Social-for-Umbraco)
+**Umbraco 7?**  
+This package was originally developed for Umbraco 7. You can find that version in the [**dev-v7**](https://github.com/abjerner/Skybrud.Social.Umbraco/blob/dev-v7/README.md) branch
 
-**Skybrud.Social for Umbraco 7** focuses on the Umbraco backend by adding a set of data types. As of now there are data types to handle the OAuth authentication for the APIs of Facebook, Twitter, Google and Instagram.
-
-![Example of OAuth data types in action](https://raw.githubusercontent.com/abjerner/Skybrud.Social.Umbraco/master/docs/images/readme1.png)
-
-At the moment this package will only help you with the OAuth authentication in the backend, as well as saving the relevant OAuth data in Umbraco. Except some property value converters, there are currently not any code to aid you in the frontend.
-
-Since this package uses [Skybrud.Social](https://github.com/abjerner/Skybrud.Social) in the backend, you might as well use it in the frontend. Under the *Documentation* tab for the [package at Our Umbraco][UmbracoPackageUrl] you will find a view partial views that will help you getting started in the frontend by using Skybrud.Social ;)
+**Umbraco 6?**  
+If you're using Umbraco 6, have a look at [this package](https://github.com/abjerner/Skybrud.Social-for-Umbraco). The package for Umbraco 6 is no longer maintained.
 
 ### Installation
 
 1. [**NuGet Package**][NuGetPackageUrl]  
 Install this NuGet package in your Visual Studio project. Makes updating easy.
 
-2. [**Umbraco package**][UmbracoPackageUrl]  
-Install this Umbraco package via the developer section in Umbraco.
+<!--2. [**Umbraco package**][UmbracoPackageUrl]  
+Install this Umbraco package via the developer section in Umbraco.-->
 
 3. [**ZIP file**][GitHubReleaseUrl]  
 Manually unzip and move files to the root directory of your website.
 
-### Documentation
+<!--### Documentation
 
-1. [**Umbraco 7** at social.skybrud.dk](http://social.skybrud.dk/umbraco-package/umbraco-7/)
+1. [**Umbraco 7** at social.skybrud.dk](http://social.skybrud.dk/umbraco-package/umbraco-7/)-->
 
 
 
