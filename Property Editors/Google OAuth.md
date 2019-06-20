@@ -1,3 +1,0 @@
-### Google OAuth
-
-*Coming soon*

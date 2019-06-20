@@ -1,14 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skybrud.Social.Umbraco", "Skybrud.Social.Umbraco\Skybrud.Social.Umbraco.csproj", "{1543F539-657A-4782-8232-719910026973}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9128D25D-D1FA-4278-A3D1-08B6EC190088}"
-	ProjectSection(SolutionItems) = preProject
-		WebEssentials-Settings.json = WebEssentials-Settings.json
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skybrud.Social.Umbraco", "Skybrud.Social.Umbraco\Skybrud.Social.Umbraco.csproj", "{1543F539-657A-4782-8232-719910026973}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCCDE290-B6DE-469D-8BB6-7AC9ECFF4E11}
 	EndGlobalSection
 EndGlobal

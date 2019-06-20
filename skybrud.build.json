@@ -1,0 +1,39 @@
+{
+  "tasks": {
+    "postBuild": [
+      {
+        "alias": "zip",
+        "destination": "releases/github/{packageName}.v{version}.zip",
+        "files": [
+          {
+            "source": "src/{packageName}/bin/Release/net472/",
+            "destination": "bin/",
+            "patterns": [
+              "{packageName}.dll",
+              "{packageName}.xml",
+              "Skybrud.Essentials.dll",
+              "Skybrud.Essentials.xml",
+              "Skybrud.Essentials.Http.dll",
+              "Skybrud.Essentials.Http.xml",
+              "Skybrud.Social.Core.dll",
+              "Skybrud.Social.Facebook.dll",
+              "Skybrud.Social.Google.dll",
+              "Skybrud.Social.Mailchimp.dll"
+            ]
+          },
+          {
+            "source": "src/{packageName}/App_Plugins/Skybrud.Social",
+            "destination": "App_Plugins/Skybrud.Social/",
+            "patterns": [
+              "**/*.js",
+              "**/*.css",
+              "**/*.html",
+              "**/*.xml",
+              "package.manifest"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+﻿@inherits System.Web.Mvc.WebViewPage<Skybrud.Social.Umbraco.Models.Mvc.ErrorPageModel>
+
+@{
+    Layout = "Layout.cshtml";
+}
+
+<div class="umb-empty-state">
+    <strong>@Model.Title</strong>
+    <div>
+        <small class="faded">@Model.Message</small>
+    </div>
+    <a href="#" class="btn btn-success" onclick="window.close();">Close window</a>
+</div>

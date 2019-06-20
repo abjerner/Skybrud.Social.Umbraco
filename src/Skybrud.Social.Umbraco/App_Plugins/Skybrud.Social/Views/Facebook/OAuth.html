@@ -1,0 +1,20 @@
+﻿<div ng-controller="Skybrud.Social.Facebook.OAuth.Controller">
+    <div ng-show="!model.value">
+        <button ng-click="authenticate()" prevent-default="" class="btn">Authorize</button>
+    </div>
+    <div ng-show="model.value">
+        <div style="float: left; margin-right: 10px;">
+            <img ng-src="https://graph.facebook.com/{{model.value.user.id}}/picture?width=96&height=96"
+                    srcset="https://graph.facebook.com/{{model.user.value.id}}/picture?width=192&height=192 2x,
+                        https://graph.facebook.com/{{model.user.value.id}}/picture?width=288&height=288 3x"
+                    width="96" height="96" alt="" />
+        </div>
+        <div style="float: left; margin-right: 10px;">
+            <div style="margin-bottom: 5px;">
+                <strong>{{model.value.user.name}}</strong> <span style="font-size: 12px;">(ID: {{model.value.user.id}})</span>
+            </div>
+            <button class="btn" ng-click="reset()" prevent-default="" style="float: left;">Clear</button>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>

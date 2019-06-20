@@ -1,83 +1,129 @@
 ﻿{
-    "propertyEditors": [
-        {
-            "alias": "Skybrud.Social.Facebook.OAuth",
-            "name": "Skybrud.Social - Facebook OAuth",
-            "editor": {
-                "view": "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PropertyEditor.html?v=1.0.6",
-                "valueType": "JSON"
-            },
-            "prevalues": {
-                "fields": [
-                    {
-                        "label": "Configuration",
-                        "key": "config",
-                        "view": "~/App_Plugins/Skybrud.Social/Facebook/OAuth/PreValueEditor.html?v=1.0.6"
-                    }
-                ]
-            }
-        },
-        {
-            "alias": "Skybrud.Social.Google.OAuth",
-            "name": "Skybrud.Social - Google OAuth",
-            "editor": {
-                "view": "~/App_Plugins/Skybrud.Social/Google/OAuth/PropertyEditor.html?v=1.0.6",
-                "valueType": "JSON"
-            },
-            "prevalues": {
-                "fields": [
-                    {
-                        "label": "Configuration",
-                        "key": "config",
-                        "view": "~/App_Plugins/Skybrud.Social/Google/OAuth/PreValueEditor.html?v=1.0.6"
-                    }
-                ]
-            }
-        },
-        {
-            "alias": "Skybrud.Social.Instagram.OAuth",
-            "name": "Skybrud.Social - Instagram OAuth",
-            "editor": {
-                "view": "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PropertyEditor.html?v=1.0.6",
-                "valueType": "JSON"
-            },
-            "prevalues": {
-                "fields": [
-                    {
-                        "label": "Configuration",
-                        "key": "config",
-                        "view": "~/App_Plugins/Skybrud.Social/Instagram/OAuth/PreValueEditor.html?v=1.0.6"
-                    }
-                ]
-            }
-        },
-        {
-            "alias": "Skybrud.Social.Twitter.OAuth",
-            "name": "Skybrud.Social - Twitter OAuth",
-            "editor": {
-                "view": "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PropertyEditor.html?v=1.0.6",
-                "valueType": "JSON"
-            },
-            "prevalues": {
-                "fields": [
-                    {
-                        "label": "Configuration",
-                        "key": "config",
-                        "view": "~/App_Plugins/Skybrud.Social/Twitter/OAuth/PreValueEditor.html?v=1.0.6"
-                    }
-                ]
-            }
-        }
-    ],
-    "javascript": [
-        "/App_Plugins/Skybrud.Social/Facebook/OAuth/Controllers.js",
-        "/App_Plugins/Skybrud.Social/Facebook/OAuth/Dialogs.js",
-        "/App_Plugins/Skybrud.Social/Google/OAuth/Controllers.js",
-        "/App_Plugins/Skybrud.Social/Google/OAuth/Dialogs.js",
-        "/App_Plugins/Skybrud.Social/Instagram/OAuth/Controllers.js",
-        "/App_Plugins/Skybrud.Social/Twitter/OAuth/Controllers.js"
-    ],
-    "css": [
-        "/App_Plugins/Skybrud.Social/Styles/Social.css"
-    ]
+  "javascript": [
+    "/App_Plugins/Skybrud.Social/Scripts/Facebook/OAuth.js",
+    "/App_Plugins/Skybrud.Social/Scripts/Google/OAuth.js",
+    "/App_Plugins/Skybrud.Social/Scripts/Google/OAuthScopes.js",
+    "/App_Plugins/Skybrud.Social/Scripts/Mailchimp/OAuth.js"
+  ],
+  "css": [
+    "/App_Plugins/Skybrud.Social/Styles/Default.css"
+  ],
+  "propertyEditors": [
+    {
+      "alias": "Skybrud.Social.GoogleOAuth",
+      "editor": {
+        "view": "/App_Plugins/Skybrud.Social/Views/Google/OAuth.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      },
+      "name": "Skybrud.Social - Google OAuth",
+      "icon": "icon-home",
+      "group": "Skybrud.Social",
+      "prevalues": {
+        "fields": [
+          {
+            "key": "info",
+            "label": "Info",
+            "view": "/App_Plugins/Skybrud.Social/Views/Google/OAuthInfo.html"
+          },
+          {
+            "key": "clientId",
+            "label": "Client ID",
+            "description": "The ID of your Google client/application.",
+            "view": "textstring"
+          },
+          {
+            "key": "clientSecret",
+            "label": "Client Secret",
+            "description": "The secret of your Google client/application.",
+            "view": "textstring"
+          },
+          {
+            "key": "redirectUri",
+            "label": "Redirect URI",
+            "description": "The redirect URI of your Google client/application.",
+            "view": "textstring"
+          },
+          {
+            "key": "scopes",
+            "label": "Scopes",
+            "description": "Select the scope/permissions the user should accept when authenticationg.<br /><br />The scope determines how you can read from and white to the various Google APIs.",
+            "view": "/App_Plugins/Skybrud.Social/Views/Google/OAuthScopes.html"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "Skybrud.Social.MailchimpOAuth",
+      "editor": {
+        "view": "/App_Plugins/Skybrud.Social/Views/Mailchimp/OAuth.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      },
+      "name": "Skybrud.Social - Mailchimp OAuth",
+      "icon": "icon-home",
+      "group": "Skybrud.Social",
+      "prevalues": {
+        "fields": [
+          {
+            "key": "clientId",
+            "label": "Client ID",
+            "view": "textstring"
+          },
+          {
+            "key": "clientSecret",
+            "label": "Client Secret",
+            "view": "textstring"
+          },
+          {
+            "key": "redirectUri",
+            "label": "Redirect URI",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "Skybrud.Social.FacebookOAuth",
+      "editor": {
+        "view": "/App_Plugins/Skybrud.Social/Views/Facebook/OAuth.html",
+        "hideLabel": false,
+        "valueType": "JSON"
+      },
+      "name": "Skybrud.Social - Facebook OAuth",
+      "icon": "icon-home color-black",
+      "group": "Skybrud.Social",
+      "prevalues": {
+        "fields": [
+          {
+            "key": "clientId",
+            "label": "Client ID",
+            "view": "textstring"
+          },
+          {
+            "key": "clientSecret",
+            "label": "Client Secret",
+            "view": "textstring"
+          },
+          {
+            "key": "redirectUri",
+            "label": "Redirect URI",
+            "view": "textstring"
+          }
+        ]
+      }
+    }
+  ],
+  "gridEditors": [
+    {
+      "name": "Headline",
+      "alias": "headline",
+      "icon": "icon-coin",
+      "view": "textstring",
+      "config": {
+        "style": "font-size: 36px; line-height: 45px; font-weight: bold",
+        "markup": "<h1>#value#</h1>"
+      }
+    }
+  ]
 }

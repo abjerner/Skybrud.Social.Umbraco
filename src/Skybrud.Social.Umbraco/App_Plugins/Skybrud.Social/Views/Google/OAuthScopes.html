@@ -1,0 +1,24 @@
+﻿<div class="SkybrudSocial Google OAuthScopes" ng-controller="Skybrud.Social.Google.OAuthScopes.Controller">
+    <div ng-repeat="group in scopes">
+        <p ng-click="group.expanded = !group.expanded;" style="cursor: pointer;">
+            <strong>{{group.name}}</strong>
+            <em style="font-size: 12px; color: #999;">({{group.count}} of {{group.scopes.length}} selected)</em>
+            <span prevent-default style="font-size: 11px;"><i class="icon icon-navigation-{{group.expanded ? 'up' : 'down'}}"></i></span>
+        </p>
+        <table class="table list" ng-show="group.expanded">
+            <tbody>
+                <tr ng-repeat="scope in group.scopes">
+                    <td>
+                        <label>
+                            <umb-toggle checked="scope.selected" on-click="toggle(scope)" />
+                            <div>
+                                <strong>{{scope.name}}</strong>
+                                <small ng-show="scope.description">{{scope.description}}</small>
+                            </div>
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

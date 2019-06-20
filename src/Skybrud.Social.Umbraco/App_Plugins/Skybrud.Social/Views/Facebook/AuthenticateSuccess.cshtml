@@ -1,0 +1,17 @@
+﻿@using Newtonsoft.Json.Linq
+@inherits System.Web.Mvc.WebViewPage<Skybrud.Social.Umbraco.Models.Mvc.FacebookAuthenticatedPageModel>
+
+@{
+    Layout = "../Layout.cshtml";
+}
+
+<div>
+    <p>Hi <strong>@Model.User.Name</strong></p>
+    <p>Please wait while you're being redirected...</p>
+    <a href="#" class="btn btn-success" onclick="window.close();">Close window</a>
+</div>
+
+<script>
+    self.opener.@(Model.Callback)(@Html.Raw(JObject.FromObject(Model.CallbackData)));
+    window.close();
+</script>

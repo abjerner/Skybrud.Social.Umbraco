@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skybrud.Social.Mailchimp</name>
+    </assembly>
+    <members>
+        <member name="T:Skybrud.Social.Mailchimp.Endpoints.MailchimpListsEndpoint">
+            <summary>
+            Class representing the lists endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.MailchimpListsEndpoint.Service">
+            <summary>
+            Gets a reference to the Mailchimp service.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.MailchimpListsEndpoint.Raw">
+            <summary>
+            Gets a reference to the raw endpoint.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.MailchimpListsEndpoint.GetList(System.String)">
+            <summary>
+            Gets information about a specific list in your Mailchimp account.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListResponse"/> representing the response.</returns>
+            <see>
+                <cref>https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists_list_id</cref>
+            </see>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.MailchimpListsEndpoint.GetLists">
+            <summary>
+            Gets a collection of all lists of the authenticated account.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListsResponse"/> representing the response.</returns>
+            <see>
+                <cref>https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists</cref>
+            </see>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Endpoints.MailchimpUsersEndpoint">
+            <summary>
+            Class representing the users endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.MailchimpUsersEndpoint.Service">
+            <summary>
+            Gets a reference to the Mailchimp service.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.MailchimpUsersEndpoint.Raw">
+            <summary>
+            Gets a reference to the raw endpoint.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.MailchimpUsersEndpoint.GetUsers">
+            <summary>
+            Gets a list of users of the account of the authenticated user.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUsersResponse"/> representing the response.</returns>
+            <see>
+                <cref>https://apidocs.Mailchimp.com/api/2.0/users/logins.php</cref>
+            </see>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.MailchimpUsersEndpoint.GetProfile">
+            <summary>
+            Gets information about the authenticated user.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUserResponse"/> representing the response.</returns>
+            <see>
+                <cref>https://apidocs.Mailchimp.com/api/2.0/users/profile.php</cref>
+            </see>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpListsRawEndpoint">
+            <summary>
+            Class representing the raw lists endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpListsRawEndpoint.Client">
+            <summary>
+            Gets a reference to the OAuth client.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpListsRawEndpoint.GetList(System.String)">
+            <summary>
+            Gets information about a specific list in your Mailchimp account.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Essentials.Http.IHttpResponse"/> representing the raw response.</returns>
+            <see>
+                <cref>https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists_list_id</cref>
+            </see>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpListsRawEndpoint.GetLists">
+            <summary>
+            Gets a collection of all lists of the authenticated account.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Essentials.Http.IHttpResponse"/> representing the raw response.</returns>
+            <see>
+                <cref>https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists</cref>
+            </see>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpUsersRawEndpoint">
+            <summary>
+            Class representing the raw users endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpUsersRawEndpoint.Client">
+            <summary>
+            Gets a reference to the OAuth client.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpUsersRawEndpoint.GetUsers">
+            <summary>
+            Gets a list of users of the account of the authenticated user.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Essentials.Http.IHttpResponse"/> representing the raw response.</returns>
+            <see>
+                <cref>https://apidocs.Mailchimp.com/api/2.0/users/logins.php</cref>
+            </see>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Endpoints.Raw.MailchimpUsersRawEndpoint.GetProfile">
+            <summary>
+            Gets information about the authenticated user.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Essentials.Http.IHttpResponse"/> representing the raw response.</returns>
+            <see>
+                <cref>https://apidocs.Mailchimp.com/api/2.0/users/profile.php</cref>
+            </see>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.MailchimpService">
+            <summary>
+            Class working as an entry point to the Mailchimp API.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.MailchimpService.Client">
+            <summary>
+            Gets a reference to the internal OAuth client for communication with the Mailchimp API.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.MailchimpService.Lists">
+            <summary>
+            Gets a reference to the lists endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.MailchimpService.Users">
+            <summary>
+            Gets a reference to the users endpoint.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.MailchimpService.CreateFromClient(Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient)">
+            <summary>
+            Initializes a new instance from the specified OAuth <paramref name="client"/>.
+            </summary>
+            <param name="client">The OAuth client to be used for making requests to the Mailchimp API.</param>
+            <returns>A new instance of <see cref="T:Skybrud.Social.Mailchimp.MailchimpService"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.MailchimpService.GetFromApiKey(System.String)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="apiKey"/>.
+            </summary>
+            <param name="apiKey">The API key.</param>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.MailchimpService"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.MailchimpService.GetFromAccessToken(System.String,System.String)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="accessToken"/> and <paramref name="apiEndpoint"/>.
+            </summary>
+            <param name="accessToken">The access token of the user.</param>
+            <param name="apiEndpoint">The API endpoint URL of the user.</param>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.MailchimpService"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata">
+            <summary>
+            Class representing the response body of a call to get metadata about the authenticated Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.DataCenter">
+            <summary>
+            Gets the data center of the user/account.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.Role">
+            <summary>
+            Gets the role of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.AccountName">
+            <summary>
+            Gets the name of the account.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.UserId">
+            <summary>
+            Gets the ID of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.Login">
+            <summary>
+            Gets information about the authenticated user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.LoginUrl">
+            <summary>
+            Gets the login URL of the account.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.ApiEndpoint">
+            <summary>
+            Gets the API endpoint of the user or account.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the meta data.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadata"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin">
+            <summary>
+            Class representing information about a Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.Email">
+            <summary>
+            Gets the email address of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.Avatar">
+            <summary>
+            Gets the avatar URL of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.LoginId">
+            <summary>
+            Gets the ID of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.LoginName">
+            <summary>
+            Gets the login name of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.LoginEmail">
+            <summary>
+            Gets the login email address of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the login.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpMetadataLogin"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo">
+            <summary>
+            Class representing information about an OAuth access token.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo.AccessToken">
+            <summary>
+            Gets the access token of the authenticated user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo.ExpiresIn">
+            <summary>
+            Gets an instance of <see cref="T:System.TimeSpan"/> indicating when the access token will expire. According to the
+            Mailchimp API documentation, an access token will not expire, but this property is still present in the
+            response. The property value will most likely always be equal to <see cref="F:System.TimeSpan.Zero"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the token.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Authentication.MailchimpTokenInfo"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Lists.MailchimpList">
+            <summary>
+            Class representing a Mailchimp mailing list.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Lists.MailchimpList.Id">
+            <summary>
+            Gets the ID of the list.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Lists.MailchimpList.Name">
+            <summary>
+            Gets the name of the list.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Lists.MailchimpList.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the list.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Lists.MailchimpList.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection">
+            <summary>
+            Class representing a collection of Mailchimp mailing lists.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection.Lists">
+            <summary>
+            Gets an array with the lists returned in the response.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection.TotalItems">
+            <summary>
+            Gets the total number of items matching the query regardless of pagination.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the list.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Lists.MailchimpListCollection"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.MailchimpObject">
+            <summary>
+            Class representing a basic object from the Mailchimp API derived from an instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.MailchimpObject.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the object.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser">
+            <summary>
+            Class representing a user of a Mailchimp account.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Id">
+            <summary>
+            Gets the ID of the account user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Username">
+            <summary>
+            Gets the username of the Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Name">
+            <summary>
+            Gets the name of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Email">
+            <summary>
+            Gets the email address of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Role">
+            <summary>
+            Gets the role of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Avatar">
+            <summary>
+            Gets the avatar URL of the user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.GlobalUserId">
+            <summary>
+            Gets the ID of the global Mailchimp user.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.DataCenterUniqueId">
+            <summary>
+            Gets the unique ID related to the current data center.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the user.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Models.Users.MailchimpUser"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient">
+            <summary>
+            Class for handling the raw communication with the Mailchimp API as well as any OAuth 2.0 communication.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.ClientId">
+            <summary>
+            Gets or sets the client ID.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.ClientSecret">
+            <summary>
+            Gets or sets the client secret.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.RedirectUri">
+            <summary>
+            Gets or sets the redirect URI.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.AccessToken">
+            <summary>
+            Gets or sets the access token.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.ApiKey">
+            <summary>
+            Gets or sets the API key.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.ApiEndpoint">
+            <summary>
+            Gets or sets the API endpoint to be used.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.Lists">
+            <summary>
+            Gets a reference to the raw lists endpoint.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.Users">
+            <summary>
+            Gets a reference to the raw users endpoint.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.#ctor">
+            <summary>
+            Initializes an OAuth client with empty information.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.#ctor(System.String,System.String)">
+            <summary>
+            Initializes an OAuth client with the specified <paramref name="clientId"/> and <paramref name="clientSecret"/>.
+            </summary>
+            <param name="clientId">The ID of the client.</param>
+            <param name="clientSecret">The secret of the client.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes an OAuth client with the specified <paramref name="clientId"/>, <paramref name="clientSecret"/> and <paramref name="redirectUri"/>.
+            </summary>
+            <param name="clientId">The ID of the client.</param>
+            <param name="clientSecret">The secret of the client.</param>
+            <param name="redirectUri">The redirect URI of the client.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.GetAuthorizationUrl(System.String)">
+            <summary>
+            Generates the authorization URL using the specified <paramref name="state"/>state.
+            </summary>
+            <param name="state">The state to send to the Mailchimp OAuth login page.</param>
+            <returns>An authorization URL based on <paramref name="state"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.GetAccessTokenFromAuthCode(System.String)">
+            <summary>
+            Exchanges the specified authorization code for an access token.
+            </summary>
+            <param name="authCode">The authorization code received from the Mailchimp OAuth dialog.</param>
+            <returns>An access token based on the specified <paramref name="authCode"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.OAuth.MailchimpOAuthClient.GetMetadata">
+            <summary>
+            Gets metadata about the authenticated Mailchimp user.
+            </summary>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpMetadataResponse"/> representing the response.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpMetadataResponse">
+            <summary>
+            Class representing the response of a call to get metadata about the authenticated Mailchimp user.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpMetadataResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <paramref name="response"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpMetadataResponse"/>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpMetadataResponse"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpTokenResponse">
+            <summary>
+            Class representing the OAuth 2.0 token response from the Mailchimp API.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Authentication.MailchimpTokenResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <code>response</code> into an instance of <code>MailchimpTokenResponse</code>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>Returns an instance of <code>MailchimpTokenResponse</code>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListResponse">
+            <summary>
+            Class representing a call to get information a single Mailchimp mailing list.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <paramref name="response"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListResponse"/>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListResponse"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListsResponse">
+            <summary>
+            Class representing a call to get a collection of Mailchimp mailing lists.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListsResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <paramref name="response"/> into an instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListsResponse"/>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.Social.Mailchimp.Responses.Lists.MailchimpGetListsResponse"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.MailchimpResponse">
+            <summary>
+            Class representing a response from the Mailchimp API.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.MailchimpResponse.#ctor(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Initializes a new instance based on the specified <code>response</code>.
+            </summary>
+            <param name="response">The raw response.</param>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.MailchimpResponse.ValidateResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Validates the specified <code>response</code>.
+            </summary>
+            <param name="response">The response to be validated.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.MailchimpResponse`1">
+            <summary>
+            Class representing a response from the Mailchimp API.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Social.Mailchimp.Responses.MailchimpResponse`1.Body">
+            <summary>
+            Gets the body of the response.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.MailchimpResponse`1.#ctor(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Initializes a new instance based on the specified <code>response</code>.
+            </summary>
+            <param name="response">The raw response.</param>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUserResponse">
+            <summary>
+            Class representing a call to get information a single account user.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUserResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <code>response</code> into an instance of <code>MailchimpGetUserResponse</code>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>Returns an instance of <code>MailchimpGetUserResponse</code>.</returns>
+        </member>
+        <member name="T:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUsersResponse">
+            <summary>
+            Class representing a call to get a list of users of an account.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Social.Mailchimp.Responses.Users.MailchimpGetUsersResponse.ParseResponse(Skybrud.Essentials.Http.IHttpResponse)">
+            <summary>
+            Parses the specified <code>response</code> into an instance of <code>MailchimpGetUsersResponse</code>.
+            </summary>
+            <param name="response">The response to be parsed.</param>
+            <returns>Returns an instance of <code>MailchimpGetUsersResponse</code>.</returns>
+        </member>
+    </members>
+</doc>

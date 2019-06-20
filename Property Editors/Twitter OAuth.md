@@ -1,3 +1,0 @@
-### Twitter OAuth
-
-*Coming soon*
