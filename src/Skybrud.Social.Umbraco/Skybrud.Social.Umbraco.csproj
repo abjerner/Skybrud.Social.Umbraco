@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net472</TargetFrameworks>
@@ -50,7 +50,7 @@
     <PackageReference Include="Skybrud.Essentials" Version="1.1.12" />
     <PackageReference Include="Skybrud.Essentials.Http" Version="1.0.5" />
     <PackageReference Include="Skybrud.Social.Facebook" Version="1.0.0-beta5" />
-    <PackageReference Include="UmbracoCms.Core" Version="8.0.0">
+    <PackageReference Include="UmbracoCms.Core" Version="8.5.4">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="UmbracoCms.Web" Version="8.0.0">
